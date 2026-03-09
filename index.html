@@ -146,6 +146,32 @@ input[type=range] { flex: 1; cursor: pointer; }
 /* ── FOOTER ── */
 .footer { font-size: 8px; color: #1e1a10; margin-top: 16px; letter-spacing: 0.15em; text-align: center; line-height: 1.8; font-family: 'Courier New', monospace; }
 
+@keyframes dot-flash {
+  0%   { r: 4.5px; opacity: 1; }
+  30%  { r: 9px;   opacity: 0.9; }
+  100% { r: 4.5px; opacity: 1; }
+}
+@keyframes ring-bloom {
+  0%   { r: 5px;  opacity: 0.9; stroke-width: 2.5px; }
+  100% { r: 18px; opacity: 0;   stroke-width: 0.5px; }
+}
+@keyframes ring-pulse {
+  0%   { r: 6px;  opacity: 0.35; }
+  50%  { r: 10px; opacity: 0.15; }
+  100% { r: 6px;  opacity: 0.35; }
+}
+.dot-just-lit {
+  animation: dot-flash 0.5s ease-out forwards;
+}
+.ring-bloom {
+  animation: ring-bloom 0.7s ease-out forwards;
+  fill: none;
+}
+.ring-pulse {
+  animation: ring-pulse 2.4s ease-in-out infinite;
+  fill: none;
+}
+
 @media (max-width: 700px) {
   .main-row { flex-direction: column; align-items: center; }
   .gauge-outer { width: 320px; height: 320px; }
@@ -400,12 +426,12 @@ const ERAS = [
 
 const allEvents = [
   // ORIGIN EVENT
-  {year:1981,layer:'field',impact:18,origin:true,title:'Hyatt Regency Collapse — Origin Event',detail:'Kansas City. 114 deaths. EOR loses license for failure at the fabrication interface. The profession learns the right lesson. The liability response removes the first brick from the training environment — without anyone recognizing it as curriculum extraction. Legal event. Institutional event. Training event. Language event. Cultural event. Compounding event. First of many irreversible extractions. No compensating response ever filed at any subsequent revision.'},
+  {year:1981,layer:'field',impact:18,origin:true,title:'Hyatt Regency Collapse — Origin Event',detail:'Kansas City. 114 deaths. The profession responded as professions do — through liability. The liability response removed the first brick from the training environment without anyone recognizing it as curriculum extraction. Legal event. Institutional event. Training event. Language event. Cultural event. Compounding event. First of many irreversible extractions. No compensating response ever filed at any subsequent revision.'},
   // DRAFTING ROOM
   {year:1982,layer:'drafting',impact:18,title:'AutoCAD 1.0 Released',detail:'Board drafting begins displacement. Drafters become operators rather than authors.'},
   {year:1985,layer:'drafting',impact:22,title:'CAD Adoption Accelerates',detail:'Senior drafters retrain or exit in large firms. Institutional memory begins fragmenting.'},
   {year:1989,layer:'drafting',impact:30,title:'Drafting as Trade Language Ends',detail:'Effectively ends in most university programs. Replaced by CAD operation.'},
-  {year:1992,layer:'drafting',impact:36,title:'Snake River Falls — Last Dual Transmission',detail:'Cedar Point. First CAD project started manually, completed in CAD after hours. The tool transition lived from both sides simultaneously. Geometry transferred. Everything the line carried beyond geometry — proportion, resistance, embedded judgment — had no equivalent in the new medium. Most drafters never ran the comparison. They just came in the next morning and opened the software.'},
+  {year:1992,layer:'drafting',impact:36,title:'1992 — The Board Goes Dark',detail:'Assigned to the board. CAD was still too slow, too untrusted for schedule-sensitive work. Started manually. Shadowed in AutoCAD at night. Eventually the board version was replaced — the CAD version was submitted. No announcement. No comparison was ever run. The next project started in CAD without discussion. That was how it happened everywhere. Not a decision. A replacement.'},
   {year:1994,layer:'drafting',impact:42,title:'Full CAD Displacement',detail:'Last generation trained on boards begins retiring. Hand sketching ends in production. Transmission pathway closes.'},
   {year:1990,layer:'drafting',impact:33,title:'Stamp Language Shifts — "Approved" Disappears',detail:'Review stamps move from "Approved" to "No Exceptions Taken," "Furnish As Noted," "Reviewed." The authority withdrawal becomes visible on every sheet. Juniors learn that shop drawings are compliance procedures, not judgment events. The word change preceded the delegation. The delegation followed naturally.'},
   {year:1990,layer:'drafting',impact:34,title:'Untaping the Sheet',detail:'Not an event. A threshold crossed universally and individually. The first erosion of the drafter\'s gatekeeping responsibility. The first gap between judgment and proximity to formation. No announcement. No memo. It happened in every office at a slightly different moment — the same crossing, the same loss, the same silence after.'},
@@ -757,6 +783,16 @@ function buildTimeline() {
     const circle = dotEl; // keep reference name for hover handlers
     g.appendChild(dotEl);
 
+    // Glow ring (bloom on activation)
+    const ring = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    ring.setAttribute('cx', x); ring.setAttribute('cy', y); ring.setAttribute('r', '6');
+    ring.setAttribute('fill', 'none');
+    ring.setAttribute('stroke', ev.origin ? '#c04040' : c);
+    ring.setAttribute('stroke-width', '1.5');
+    ring.setAttribute('opacity', '0');
+    ring.setAttribute('id', `ring-${i}`);
+    g.insertBefore(ring, dotEl);
+
     const title = document.createElementNS('http://www.w3.org/2000/svg','title');
     title.textContent = `${ev.year} · ${ev.title}`;
     g.appendChild(title);
@@ -966,13 +1002,55 @@ function updateTimeline(year) {
 
   allEvents.forEach((ev,i) => {
     const dot = document.getElementById(`dot-${i}`);
+    const ring = document.getElementById(`ring-${i}`);
     if (!dot) return;
     const active = ev.year <= year;
     const col = ev.origin ? '#c04040' : LAYERS[ev.layer].color;
-    dot.setAttribute('fill', active ? col : '#161210');
-    dot.setAttribute('stroke', ev.origin ? '#c04040' : LAYERS[ev.layer].color);
-    dot.setAttribute('stroke-width', active ? (ev.origin ? '2' : '1.5') : '0.8');
-    dot.setAttribute('opacity', active ? '1' : '0.35');
+    const justLit = ev.year === year;
+
+    if (active) {
+      dot.setAttribute('fill', col);
+      dot.setAttribute('stroke', col);
+      dot.setAttribute('stroke-width', ev.origin ? '2' : '1.5');
+      dot.setAttribute('opacity', '1');
+
+      if (justLit && ring) {
+        // Flash the dot
+        dot.classList.remove('dot-just-lit');
+        void dot.offsetWidth; // force reflow to restart animation
+        dot.classList.add('dot-just-lit');
+
+        // Bloom ring
+        ring.setAttribute('stroke', col);
+        ring.setAttribute('opacity', '0.9');
+        ring.classList.remove('ring-bloom', 'ring-pulse');
+        void ring.offsetWidth;
+        ring.classList.add('ring-bloom');
+        ring.addEventListener('animationend', () => {
+          ring.classList.remove('ring-bloom');
+          ring.setAttribute('opacity', '0');
+        }, {once: true});
+      } else if (ring) {
+        // Settled — soft pulse ring
+        ring.setAttribute('stroke', col);
+        if (!ring.classList.contains('ring-pulse')) {
+          ring.classList.remove('ring-bloom');
+          ring.setAttribute('opacity', '0.35');
+          ring.setAttribute('r', '6');
+          ring.classList.add('ring-pulse');
+        }
+      }
+    } else {
+      dot.setAttribute('fill', '#161210');
+      dot.setAttribute('stroke', ev.origin ? '#c04040' : LAYERS[ev.layer].color);
+      dot.setAttribute('stroke-width', '0.8');
+      dot.setAttribute('opacity', '0.35');
+      dot.classList.remove('dot-just-lit');
+      if (ring) {
+        ring.classList.remove('ring-bloom', 'ring-pulse');
+        ring.setAttribute('opacity', '0');
+      }
+    }
   });
 
   // Event grid

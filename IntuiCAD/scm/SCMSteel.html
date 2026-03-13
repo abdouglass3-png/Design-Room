@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SCM Steel</title>
+<style type="text/css">
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0; padding: 0; border: 0; outline: 0;
+	font-size: 100%; vertical-align: baseline; background: transparent;
+}
+body { font-family: "Calibri", Trebuchet MS, Helvetica, Arial, sans-serif; background-color:#606060; background-image:url(backgroundGradient.gif); background-position:center; background-repeat:repeat-y; text-align:center; }
+#container { background-color: #FFF; width: 770px; margin-right: auto; margin-left: auto; text-align: left; }
+#container #branding { background-color: #999; padding: 15px; border-top: 15px solid #000; border-bottom: 5px solid #fff; }
+#container #mainNav { background-color: #000; font-size: 0.8em; height:2em; border-bottom: 5px solid #fff; }
+#container #mainContent { background-color: #fff; padding: 15px 15px 20px; }
+#container #sidebar1 { background-color: #606060; font-size: 0.8em; text-align: left; width: 140px; border-bottom: 15px solid #000; margin-bottom:20px; margin-left: 15px; overflow: hidden; float: right; }
+#container #siteInfo { background-color: #000; color:#ccc; font-size: .7em; height: 2em; text-align: center; }
+h1 { font-size: 1.5em; line-height: 1.5em; text-align: left; font-weight: normal; color: #606060; padding-bottom: 0.3em; }
+h2 { font-size: 1.0em; line-height: 1.5em; text-align: left; font-weight: bold; color: #F00; padding-top: 0.3em; padding-bottom: 0.3em; }
+h3 { font-size: 0.9em; line-height: 1.5em; color: #000; font-weight: bold; padding-top: 0.3em; padding-bottom: 0.3em; }
+ul li a:link { font-size: 0.8em; line-height: 2.0em; color: #F00; text-decoration: none; display: inline; list-style-type: none; }
+ul li a:visited { text-decoration:none; color: #C03; }
+ul li a:hover, a:focus, a:active { color: #FFF; }
+#container #mainNav ul li { line-height: 2em; display:inline; padding: 0 15px; }
+#container #sidebar1 ul li { line-height: 1.5em; display:block; border-bottom: 1px solid #000; padding: 0.1em 15px; }
+#container #mainContent p, a:link, ul li a:link { font-size:0.9em; line-height: 1.5em; }
+#container #mainContent a:hover, a:focus, a:active { color: #F00; }
+#container #mainContent ul li { height: 1.5em; list-style-type: none; color: #666; }
+#container #mainContent ol li { list-style-position: outside; list-style-type: square; color: #666; margin-left:20px; margin-bottom: 0.3em; }
+#container #siteInfo p { background-color:#000; text-align: center; height: 2.0em; }
+#container #siteInfo ul li { line-height: 2em; display:inline; padding: 0 5px; }
+blockquote { font-size: 1.1em; font-style: italic; line-height: 1.7em; color: #CCC; padding: 0.7em 15px 0; text-align: center; }
+.textLink { color: #000; text-decoration: underline; font-size: 1.0em; display: inline; }
+.emphasis { font-style: italic; color: #000; }
+.centerThis { text-align: center; margin-right: auto; margin-left: auto; }
+.clearfloat { clear:both; margin:0; padding:0; font-size: 1px; line-height: 0px; }
+.flash-notice { background-color: #f5f5f5; border-left: 3px solid #606060; padding: 10px 15px; margin: 10px 0; font-size: 0.85em; color: #666; font-style: italic; }
+
+/* ===== Mobile Responsive Additions ===== */
+img { max-width: 100%; height: auto; }
+
+@media screen and (max-width: 800px) {
+  #container { width: 100%; }
+}
+
+@media screen and (max-width: 600px) {
+  #container #branding img { width: 100%; }
+  #container #sidebar1 {
+    float: none;
+    width: 100% !important;
+    margin-left: 0;
+    margin-right: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px;
+  }
+  #container #sidebar1 ul {
+    flex: 1 1 120px;
+    min-width: 120px;
+  }
+  #container #mainContent {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+  #container #mainNav {
+    height: auto !important;
+    padding: 0;
+  }
+  #container #mainNav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 4px 0;
+    gap: 0;
+  }
+  #container #mainNav ul li {
+    display: inline-block !important;
+    padding: 4px 8px !important;
+    line-height: 1.8em !important;
+  }
+  #container #siteInfo {
+    height: auto !important;
+    padding: 8px 0;
+  }
+  #container #siteInfo ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+  }
+  #container #siteInfo ul li {
+    display: inline-block !important;
+    padding: 2px 4px !important;
+    line-height: 2em !important;
+  }
+}
+</style>
+</head>
+<body>
+<div id="container" align="center">
+<div id="branding" align="left">
+  <p align="left"><em>For engineering drawing, your solution is...</em></p>
+  <p align="center"><img src="intuiCADlogo.jpg" alt="intuiCAD logo" width="620" height="132" /></p>
+  <p align="right"><em>...because it's definitely about time!</em></p>
+</div>
+<div id="mainNav" align="center">
+<ul>
+<li><a href="../../index.html">HOME</a></li>
+<li><a href="../customizations.html">CUSTOMIZATIONS</a></li>
+<li><a href="../designModules.html">DESIGN MODULES</a></li>
+<li><a href="../aboutUs.html">ABOUT US</a></li>
+<li><a href="../privacyPolicy.html">PRIVACY POLICY</a></li>
+<li><a href="../contactUs.html">CONTACT US</a></li>
+</ul>
+</div>
+<div id="sidebar1">
+  <p><img src="oneRedBlock.gif" alt="" class="centerThis" width="140" height="35" /><img src="ST-1.JPG" width="140" height="210" alt="Steel example" /></p>
+  <p>&nbsp;</p>
+  <ul>
+    <li><a href="SCMDSetup.html">DRAWING SETUP</a></li>
+    <li><a href="SCMSymbols.html">SYMBOLS</a></li>
+    <li>STEEL</li>
+    <li><a href="SCMConcrete.html">CONCRETE</a></li>
+    <li><a href="SCMMasonry.html">MASONRY</a></li>
+    <li><a href="SCMWood.html">WOOD</a></li>
+    <li><a href="SCMSLH.html">S/L/H</a></li>
+    <li><a href="SCMHatching.html">HATCHING</a></li>
+  </ul>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p><img src="ST-2.JPG" width="140" height="210" alt="Steel example 2" /><img src="oneRedBlock.gif" alt="" class="centerThis" width="140" height="35" /></p>
+</div>
+<div id="mainContent">
+<h1>SCM Steel</h1>
+<p>One might expect the steel section of a structural package to draw <a href="http://www.aisc.org/" rel="noopener noreferrer" target="_blank">AISC</a> parametric shapes but this package goes far beyond that. IntuiCAD SCM provides a wide selection of steel components for design detailing.<br />&nbsp;</p>
+<p class="flash-notice">Video demonstration previously available here required Adobe Flash Player, which is no longer supported by modern browsers.</p>
+<p>Here, several connections are created from one already inserted. Note how the insertion point placement facilitates editing. More SCM videos <a href="SCMVideos.html">here...</a></p>
+<h2>&nbsp;</h2>
+<h2>More Features</h2>
+<ol>
+<li>SCM Steel Mill creates AISC parametric shapes in multiple views.</li>
+<li>Steel column blocks provide plan functionality.</li>
+<li>Connection blocks with adjustable bolts on gage line (See video).</li>
+<li>Full spectrum of light gage members and accessories.</li>
+<li>Open-web steel joists, girders and accessories in K-, LH-, DLH-, VS- and girder configurations.</li>
+<li><p>Adjustable steel deck in common configurations with interchangeable direction dynamics.</p></li>
+<li><p>Bolts, studs, anchors and other fasteners with dynamic adjustments.</p></li>
+<li><p>Welding routine with a full set of AWS symbology and dynamic features.</p></li>
+<li><p>All components automatically layer.</p></li>
+</ol>
+</div>
+<div align="center"><img src="3redBlocks.gif" alt="" width="265" height="35" /></div>
+<div id="siteInfo" align="center">
+<ul>
+<li><a href="../../index.html">HOME</a></li>
+<li>|</li>
+<li><a href="../customizations.html">CUSTOMIZATIONS</a></li>
+<li>|</li>
+<li><a href="../designModules.html">DESIGN MODULES</a></li>
+<li>|</li>
+<li><a href="../aboutUs.html">ABOUT US</a></li>
+<li>|</li>
+<li><a href="../privacyPolicy.html">PRIVACY POLICY</a></li>
+<li>|</li>
+<li><a href="../contactUs.html">CONTACT US</a></li>
+</ul>
+<p>&copy; Copyright 2009 IntuiCAD, LLC. All rights reserved.</p>
+</div>
+</div>
+</body>
+</html>

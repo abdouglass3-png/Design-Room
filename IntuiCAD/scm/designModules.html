@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Design Modules</title>
+<style type="text/css">
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0; padding: 0; border: 0; outline: 0;
+	font-size: 100%; vertical-align: baseline; background: transparent;
+}
+body { font-family: "Calibri", Trebuchet MS, Helvetica, Arial, sans-serif; background-color:#606060; background-image:url(backgroundGradient.gif); background-position:center; background-repeat:repeat-y; text-align:center; }
+#container { background-color: #fff; width: 770px; margin-right: auto; margin-left: auto; text-align: left; position:relative; }
+a:visited { text-decoration:none; color: #f00; }
+a:hover, a:focus, a:active { color: #c7c5c5; }
+h1 { font-size: 1.5em; line-height: 1.5em; text-align: left; font-weight: normal; color: #606060; padding-bottom: 0.3em; }
+h2 { font-size: 1.0em; line-height: 1.5em; text-align: left; font-weight: bold; color: #F00; padding-top: 0.3em; padding-bottom: 0.3em; }
+h3 { font-size: 0.9em; line-height: 1.5em; color: #000; font-weight: bold; padding-top: 0.3em; padding-bottom: 0.3em; }
+#container #branding { background-color: #999; padding: 15px; border-top: 15px solid #000; border-bottom: 5px solid #fff; }
+#container #mainNav { font-size: 0.8em; background-color: #000; height:1.5em; padding-top:6px; padding-bottom:4px; border-bottom: 5px solid #fff; text-align:center; }
+#container #sidebar1 { background-color: #606060; text-align: center; width: 265px; border-bottom: 15px solid #000; margin-bottom:20px; margin-left: 15px; overflow: hidden; float: right; }
+#siteInfo { background-color: #000; color:#ccc; text-align:center; }
+#mainNav li, a:link { color: #F00; text-decoration: none; text-align: center; display: inline; padding: 5px 15px; }
+#container #siteInfo ul li, a:link { display:inline; font-size: .7em; height: 2em; text-align: center; padding: 0.3em 0; }
+#container #mainContent { background-color: #FFF; padding: 15px 15px 20px; width: 475px; }
+#container #mainContent p, a:link { font-size:0.9em; line-height: 1.5em; }
+#container #mainContent a:link { color: #000; text-decoration: underline; padding:2px; }
+#container #mainContent ul li { height: 1.5em; list-style-type: none; color: #666; }
+#container #mainContent ol li { list-style-position: outside; list-style-type: square; color: #666; text-indent: 1em; margin-left:20px; margin-bottom: 0.3em; }
+#container #mainContent a:hover, a:focus, a:active { color: #F00; }
+#container #siteInfo p { text-align: center; color: #ccc; font-size: .7em; height: 2.0em; }
+#container #siteInfo a:hover, a:focus, a:active { color: #c7c5c5; }
+blockquote { font-size: 1.1em; font-style: italic; line-height: 1.7em; color: #CCC; padding: 0.7em 15px 0; text-align: center; }
+.textLink { color: #000; text-decoration: none; font-size: 1.0em; padding: 0; margin: 0; display: inline; }
+.emphasis { font-style: italic; color: #000; }
+.centerThis { text-align: center; margin-right: auto; margin-left: auto; }
+.clearfloat { clear:both; margin:0; padding:0; font-size: 1px; line-height: 0px; }
+#container #sidebar2 { text-align:center; width:264px; border-left: 1px dotted #F00; top: 700px; left: 505px; position: absolute; }
+#container #sidebar2 p { color:#000; font-size:0.7em; line-height: 1.1em; text-align: left; padding: 15px; width: 235px; }
+
+/* ===== Mobile Responsive Additions ===== */
+img { max-width: 100%; height: auto; }
+
+@media screen and (max-width: 800px) {
+  #container { width: 100%; }
+  #container #mainContent { width: 100% !important; box-sizing: border-box; }
+  #container #sidebar2 {
+    position: static !important;
+    width: 100% !important;
+    border-left: none !important;
+    border-top: 1px dotted #F00;
+    margin-top: 20px;
+    box-sizing: border-box;
+  }
+  #container #sidebar2 p { width: auto !important; }
+}
+
+@media screen and (max-width: 600px) {
+  #container #branding img { width: 100%; }
+  #container #sidebar1 {
+    float: none;
+    width: 100% !important;
+    margin-left: 0;
+    margin-right: 0;
+    box-sizing: border-box;
+  }
+  #container #mainNav {
+    height: auto !important;
+    padding: 0;
+  }
+  #container #mainNav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 4px 0;
+  }
+  #container #mainNav ul li {
+    display: inline-block !important;
+    padding: 4px 8px !important;
+    line-height: 1.8em !important;
+  }
+  #container #siteInfo {
+    height: auto !important;
+    padding: 8px 0;
+  }
+  #container #siteInfo ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  #container #siteInfo ul li {
+    display: inline-block !important;
+    padding: 2px 4px !important;
+    line-height: 2em !important;
+  }
+}
+</style>
+</head>
+<body>
+<div id="container" align="center">
+<div id="branding" align="left">
+<p align="left"><em>For engineering drawing, your solution is...</em></p>
+<p align="center"><img src="intuiCADlogo.jpg" alt="intuiCAD logo" width="620" height="132" /></p>
+<p align="right"><em>...because it's definitely about time!</em></p>
+</div>
+<div id="mainNav" align="center">
+<ul>
+<li><a href="../index.html">HOME</a></li>
+<li><a href="customizations.html">CUSTOMIZATIONS</a></li>
+<li><a href="designModules.html">DESIGN MODULES</a></li>
+<li><a href="aboutUs.html">ABOUT US</a></li>
+<li><a href="privacyPolicy.html">PRIVACY POLICY</a></li>
+<li><a href="contactUs.html">CONTACT US</a></li>
+</ul>
+</div>
+<div id="sidebar1"><img src="oneRedBlock.gif" alt="" class="centerThis" width="140" height="35" /><img src="callierBuilding.jpg" alt="Callier building" vspace="10" width="265" height="176" />
+<blockquote>
+<p>The most perfect efficiency <br />is work already performed. <br />That perfection is reduced directly <br />by access and alteration.</p>
+</blockquote>
+<img src="oneRedBlock.gif" alt="" class="centerThis" width="140" height="35" /></div>
+<div id="mainContent">
+<h1>Design Modules</h1>
+<h2>IntuiCAD combines AutoLisp &mdash; long a favorite customization ally &mdash; with AutoCAD&rsquo;s powerful dynamic blocks to deliver design tools specifically attuned to exploit the most common, or even SPECIFIC editing capabilities in engineering design.</h2>
+<p>We make use of solid document creation tools and techniques. We have done extensive research into the specifications of <a href="http://www.asce.org/" target="_blank" rel="noopener noreferrer">ASCE</a>, <a href="http://www.aws.org/w/a/" target="_blank" rel="noopener noreferrer">AWS</a>, <a href="http://www.steeljoist.org/" target="_blank" rel="noopener noreferrer">SJI</a>, <a href="http://www.crsi.org/" target="_blank" rel="noopener noreferrer">CRSI</a>, <a href="http://osha.gov/" target="_blank" rel="noopener noreferrer">OSHA</a> and others as well as major manufacturers of building components in order to provide you with the most functional tools possible.</p>
+<h2><a href="SCM/index.html">Structural Component Manager</a></h2>
+<p>SCM is a full service, single sourcing, CAD customization system designed specifically for Structural Engineering.</p>
+<h2><a href="MCM/index.html">Mechanical Component Manager</a></h2>
+<p>Coming soon.</p>
+<h2><a href="ECM/index.html">Electrical Component Manager</a></h2>
+<p>Coming soon.</p>
+<h2><a href="PCM/index.html">Piping Component Manager</a></h2>
+<p>Coming soon.</p>
+<p>&nbsp;</p>
+<div id="sidebar2"><a href="http://www.adda.org" target="_blank" rel="noopener noreferrer"><img src="addaLogoSmall.jpg" alt="ADDA logo" width="136" height="83" /></a>
+<p>IntuiCAD SCM is considered a fundamental component to the design drafting profession by the American Design Drafting Association. IntuiCAD SCM and its related material is relevant to the delivery of the design drafting process.</p>
+<p>... ADDA feels, it should be considered a key reference tool in furthering the knowledge, abilities, and skills of a properly trained designer or drafter in their pursuit of a professional career and job performance on a daily basis.</p>
+</div>
+</div>
+<div align="center"><img src="3redBlocks.gif" alt="" width="265" height="35" /></div>
+<div id="siteInfo" align="center">
+<ul>
+<li><a href="../index.html">HOME</a></li>
+<li>|</li>
+<li><a href="customizations.html">CUSTOMIZATIONS</a></li>
+<li>|</li>
+<li><a href="designModules.html">DESIGN MODULES</a></li>
+<li>|</li>
+<li><a href="aboutUs.html">ABOUT US</a></li>
+<li>|</li>
+<li><a href="privacyPolicy.html">PRIVACY POLICY</a></li>
+<li>|</li>
+<li><a href="contactUs.html">CONTACT US</a></li>
+</ul>
+<p>&copy; Copyright 2009 IntuiCAD, LLC. All rights reserved.</p>
+</div>
+</div>
+</body>
+</html>

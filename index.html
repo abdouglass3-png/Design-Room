@@ -1,302 +1,1106 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>IntuiCAD</title>
-<!--[if IE 5]>
-<style type="text/css"> 
-#sidebar1 { width: 265px; }
-</style>
-<![endif]--><!--[if IE]>
-<style type="text/css"> 
-#mainContent { zoom: 1; }
-</style>
-<![endif]-->
-<style type="text/css">
-<!--
-/* v1.0 | 20080212 */
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	outline: 0;
-	font-size: 100%;
-	vertical-align: baseline;
-	background: transparent;
-}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design Room Stress Gage</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-	font-family: "Calibri", Trebuchet MS, Helvetica, Arial, sans-serif;
-	background-color:#606060;
-	background-image:url(backgroundGradient.gif);
-	background-position:center;
-	background-repeat:repeat-y;
-	text-align:center;
+  background: #161210;
+  min-height: 100vh;
+  font-family: 'Georgia', serif;
+  color: #c8b89a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px 36px;
 }
-#container {
-	background-color: #fff;
-	width: 770px;
-	margin-right: auto;
-	margin-left: auto;
-	text-align: left;
-	position:relative;
-}
-a:visited {
-	text-decoration:none;
-	color: #f00;
-	}
-a:hover, a:focus, a:active {
-	color: #c7c5c5;
-}
-h1 {
-	font-size: 1.5em;
-	line-height: 1.5em;
-	text-align: left;
-	font-weight: normal;
-	color: #606060;
-	padding-bottom: 0.3em;
-}
-h2 {
-	font-size: 1.0em;
-	line-height: 1.5em;
-	text-align: left;
-	font-weight: bold;
-	color: #F00;
-	padding-top: 0.3em;
-	padding-bottom: 0.3em;
-}
-h3 {
-	font-size: 0.9em;
-	line-height: 1.5em;
-	color: #000000;
-	font-weight: bold;
-	padding-top: 0.3em;
-	padding-bottom: 0.3em;
-}
-#container #branding {
-	background-color: #999;
-	padding: 15px;
-	border-top-width: 15px;
-	border-top-style: solid;
-	border-top-color: #000;
-	border-bottom-width:5px;
-	border-bottom-style:solid;
-	border-bottom-color:#fff;
-}
-#container #mainNav {
-	font-size: 0.8em;
-	background-color: #000;
-	height:1.5em;
-	padding-top:6px;
-	padding-bottom:4px;
-	border-bottom-width:5px;
-	border-bottom-style:solid;
-	border-bottom-color:#fff;
-text-align:center;
-}
-#container #sidebar1 {
-	background-color: #606060;
-	text-align: center;
-	width: 265px;
-	border-bottom:solid;
-	border-bottom-color:#000;
-	border-bottom-width:15px;
-	margin-bottom:20px;
-	margin-left: 15px;
-	overflow: hidden;
-	float: right;
-}
-#siteInfo {
-	background-color: #000;
-	color:#ccc;
-text-align:center;
-}
-#mainNav li, a:link {
-	color: #F00;
-	text-decoration: none;
-	text-align: center;
-	display: inline;
-	padding: 5px 15px 5px 15px;
-}
-#container #siteInfo ul li, a:link {
-	display:inline;
-	font-size: .7em;
-	height: 2em;
-	text-align: center;
-	padding-top: 0.3em;
-	padding-bottom: 0.3em;
-	}
-#container #mainContent {
-	background-color: #FFF;
-	padding: 15px 15px 20px;
-	width: 475px;
-}
-#container #mainContent p, a:link {
-	font-size:0.9em;
-	line-height: 1.5em;
-}
-#container #mainContent a:link {
-	color: #000;
-	text-decoration: underline;
-	padding:2px;
-}
-#container #mainContent ul li {
-	height: 1.5em;
-	list-style-type: none;
-	color: #666;
-	text-indent: 0;
-}
-#container #mainContent ol li {
-	list-style-position: outside;
-	list-style-type: square;
-	color: #666;
-	text-indent: 1em;
-	margin-left:20px;
-	margin-bottom: 0.3em;
-}
-#container #mainContent a:hover, a:focus, a:active {
-	color: #F00;
-}
-#container #siteInfo p{
-	text-align: center;
-	color: #ccc;
-	font-size: .7em;
-	height: 2.0em;
-}
-#container #siteInfo a:hover, a:focus, a:active {
-	color: #c7c5c5;
-}
-blockquote {
-	font-size: 1.1em;
-	font-style: italic;
-	line-height: 1.7em;
-	font-weight: normal;
-	color: #CCC;
-	padding-top: 0.7em;
-	padding-right: 15px;
-	padding-bottom: 0;
-	padding-left: 15px;
-	text-align: center;
-}
-.textLink {
-	color: #000;
-	text-decoration: none;
-	font-size: 1.0em;
 
-	padding: 0px;
-	margin: 0;
-	display: inline;
-}
-.emphasis {
-	font-style: italic;
-	color: #000;
-}
-.centerThis {
-	text-align: center;
-	margin-right: auto;
-	margin-left: auto;
-}
-.fltlft {
-	margin: 0px;
-	padding: 0px;
-	float: left;
-}
-.clearfloat {
-    clear:both;
-	margin:0;
-	padding:0;
-	font-size: 1px;
-	line-height: 0px;
-}
-#container #sidebar2 {
-	text-align:center;
-	width:264px;
-	border-left-width: 1px;
-	border-left-style: dotted;
-	border-left-color: #F00;
-	top: 700px;
-	left: 505px;
-	position: absolute;
-}
-#spacer {
-	text-align: center;
-	width: 770px;
-}
-#container #sidebar2 p{
-	color:#000;
-	font-size:0.7em;
-	line-height: 1.1em;
-	text-align: left;
-	padding: 15px;
-	width: 235px;
-}
--->
-</style></head>
+/* ── HEADER ── */
+.header { text-align: center; margin-bottom: 16px; }
+.header .eyebrow { font-size: 11px; letter-spacing: 0.3em; color: #7a6a50; text-transform: uppercase; margin-bottom: 4px; font-family: 'Courier New', monospace; }
+.header .title { font-size: 24px; font-weight: bold; letter-spacing: 0.06em; color: #ecdcbc; text-transform: uppercase; }
+.header .paper-titles { font-size: 11px; color: #8a7a60; letter-spacing: 0.12em; margin-top: 5px; font-style: italic; }
+.header .sub { font-size: 11px; color: #6a5a40; letter-spacing: 0.16em; margin-top: 3px; font-family: 'Courier New', monospace; }
 
+/* ── MAIN LAYOUT ── */
+.main-row {
+  display: flex; gap: 24px; align-items: flex-start;
+  width: 100%; max-width: 960px; margin-bottom: 12px;
+  flex-wrap: wrap;
+}
 
+/* ── GAUGE ── */
+.gauge-wrap { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.gauge-outer {
+  width: 400px; height: 400px; border-radius: 50%;
+  background: radial-gradient(circle at 38% 32%, #3c3028 0%, #1e1a16 55%, #0e0c0a 100%);
+  border: 5px solid #4a3e2e;
+  box-shadow: 0 0 0 2px #201a10, 0 14px 60px rgba(0,0,0,0.95), inset 0 2px 12px rgba(255,210,130,0.05);
+  position: relative; display: flex; align-items: center; justify-content: center;
+}
+.gauge-inner {
+  width: 368px; height: 368px; border-radius: 50%;
+  background: radial-gradient(circle at 42% 38%, #2c2418 0%, #141210 75%);
+  border: 2px solid #2a1e12; position: relative; overflow: hidden;
+}
+
+/* ── PREMISE ── */
+.gauge-premise {
+  text-align: center; font-size: 11px; color: #8a7a60;
+  line-height: 1.7; letter-spacing: 0.05em; max-width: 400px;
+  border-top: 1px solid #2a1e14; padding-top: 10px;
+  font-family: 'Courier New', monospace;
+}
+.gauge-premise .reminder { color: #8a7a60; margin-top: 4px; font-style: italic; }
+
+/* ── DEFICIT BOX ── */
+.deficit-box {
+  background: #111008; border: 1px solid #2a2010;
+  padding: 10px 20px; text-align: center; min-width: 180px;
+}
+.deficit-label { font-size: 10px; color: #6a5a40; letter-spacing: 2px; margin-bottom: 4px; font-family: 'Courier New', monospace; }
+.deficit-value { font-size: 22px; font-weight: bold; }
+.deficit-sub { font-size: 10px; color: #6a5a40; margin-top: 2px; font-family: 'Courier New', monospace; }
+
+/* ── RIGHT COLUMN ── */
+.right-col { flex: 1; min-width: 280px; display: flex; flex-direction: column; gap: 10px; }
+.panel { background: #111008; border: 1px solid #221e12; padding: 12px 14px; }
+.panel-title { font-size: 10px; color: #6a5a40; letter-spacing: 0.22em; margin-bottom: 10px; font-family: 'Courier New', monospace; text-transform: uppercase; }
+
+/* Event card */
+.event-card { background: #1a1612; padding: 14px 16px; min-height: 120px; }
+.event-layer-label { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; font-family: 'Courier New', monospace; }
+.event-impact { font-size: 10px; color: #6a5840; letter-spacing: 0.08em; font-family: 'Courier New', monospace; }
+.event-title { font-size: 14px; color: #e8d0a8; margin: 8px 0; line-height: 1.35; }
+.event-detail { font-size: 12px; color: #9a8a70; line-height: 1.75; }
+
+/* Layer bars */
+.bar-row { margin-bottom: 8px; }
+.bar-header { display: flex; justify-content: space-between; margin-bottom: 3px; }
+.bar-label { font-size: 10px; letter-spacing: 0.1em; font-family: 'Courier New', monospace; }
+.bar-pct { font-size: 10px; color: #6a5840; font-family: 'Courier New', monospace; }
+.bar-track { height: 4px; background: #221e12; border-radius: 2px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 2px; transition: width 0.7s ease; opacity: 0.85; }
+
+/* Zone legend */
+.zone-row { display: flex; align-items: center; gap: 10px; margin-bottom: 5px; }
+.zone-pip { width: 24px; height: 3px; border-radius: 2px; flex-shrink: 0; }
+
+/* Response panel */
+.response-note { font-size: 10px; color: #5B8A6F; margin-bottom: 8px; line-height: 1.5; font-family: 'Courier New', monospace; }
+.response-gap { color: #c05a48; }
+.response-scroll { max-height: 130px; overflow-y: auto; }
+.response-row { display: flex; gap: 8px; margin-bottom: 4px; transition: opacity 0.3s; }
+.response-year { font-size: 10px; color: #5BA4CF; width: 30px; flex-shrink: 0; font-family: 'Courier New', monospace; }
+.response-label { font-size: 10px; color: #9a8a70; }
+.response-detail { font-size: 10px; color: #6a5a48; font-style: italic; }
+
+/* ── CONTROLS ── */
+.controls-row {
+  width: 100%; max-width: 960px;
+  display: flex; align-items: center; gap: 12px; margin-bottom: 8px;
+}
+.btn {
+  border-radius: 2px; padding: 5px 14px; font-size: 10px;
+  cursor: pointer; letter-spacing: 1px; flex-shrink: 0;
+  font-family: 'Courier New', monospace; border: 1px solid #3a2e18;
+}
+.btn-play { background: #1a1408; color: #8a7a60; }
+.btn-play.active { background: #1a2c1a; border-color: #4a8a5a; color: #6BBF8E; }
+.btn-reset { background: #111008; color: #4a3828; border-color: #221e12; }
+.slider-labels { display: flex; justify-content: space-between; font-size: 10px; color: #6a5a40; letter-spacing: 0.08em; margin-top: 2px; font-family: 'Courier New', monospace; }
+input[type=range] { flex: 1; cursor: pointer; }
+
+/* ── TIMELINE ── */
+.timeline-section { width: 100%; max-width: 960px; background: #0e0c08; border: 1px solid #221e12; padding: 12px 0 8px; margin-bottom: 10px; }
+.timeline-header { font-size: 10px; color: #6a5a40; letter-spacing: 0.2em; text-align: center; margin-bottom: 6px; font-family: 'Courier New', monospace; }
+.layer-legend { display: flex; gap: 20px; justify-content: center; margin-top: 6px; padding-bottom: 2px; }
+.layer-legend-item { display: flex; align-items: center; gap: 6px; }
+.layer-legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+.layer-legend-label { font-size: 10px; letter-spacing: 0.1em; font-family: 'Courier New', monospace; }
+
+/* ── DEVICE TABLE ── */
+.device-section { width: 100%; max-width: 960px; background: #0e0c08; border: 1px solid #221e12; padding: 12px 14px; margin-bottom: 10px; }
+.device-table { width: 100%; border-collapse: collapse; opacity: 0.8; }
+.device-table th { font-size: 10px; color: #6a5a40; letter-spacing: 2px; text-align: left; padding: 4px 8px 8px; border-bottom: 1px solid #221e12; font-family: 'Courier New', monospace; }
+.device-table td { font-size: 11px; color: #9a8a70; padding: 6px 8px; border-bottom: 1px solid #161210; vertical-align: top; line-height: 1.5; }
+.device-table td:first-child { color: #c8b89a; white-space: nowrap; }
+.device-table td:nth-child(2) { color: #c8a060; white-space: nowrap; font-style: italic; font-family: 'Courier New', monospace; }
+.device-table tr:last-child td { border-bottom: none; }
+
+/* ── EVENT GRID ── */
+.event-grid-section { width: 100%; max-width: 960px; }
+.event-grid-layer { margin-bottom: 10px; }
+.event-grid-header { font-size: 10px; letter-spacing: 0.22em; padding-bottom: 4px; margin-bottom: 6px; font-family: 'Courier New', monospace; text-transform: uppercase; }
+.event-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px 12px; }
+.event-grid-item { display: flex; gap: 5px; align-items: flex-start; cursor: pointer; padding: 2px 0; transition: opacity 0.3s; }
+.event-grid-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; margin-top: 3px; }
+.event-grid-dot.origin { width: 8px; height: 8px; border-radius: 1px; transform: rotate(45deg); margin-top: 1px; flex-shrink: 0; }
+.event-grid-year { font-size: 10px; font-family: 'Courier New', monospace; }
+.event-grid-title { font-size: 10px; color: #7a6a58; line-height: 1.4; }
+.event-grid-title.origin-title { color: #c04040; }
+.origin-badge { font-size: 9px; color: #c04040; letter-spacing: 2px; font-family: 'Courier New', monospace; }
+
+/* ── FOOTER ── */
+.footer { font-size: 10px; color: #4a3a28; margin-top: 16px; letter-spacing: 0.15em; text-align: center; line-height: 1.8; font-family: 'Courier New', monospace; }
+
+@keyframes dot-flash {
+  0%   { r: 4.5px; opacity: 1; }
+  30%  { r: 9px;   opacity: 0.9; }
+  100% { r: 4.5px; opacity: 1; }
+}
+@keyframes ring-bloom {
+  0%   { r: 5px;  opacity: 0.9; stroke-width: 2.5px; }
+  100% { r: 18px; opacity: 0;   stroke-width: 0.5px; }
+}
+@keyframes ring-pulse {
+  0%   { r: 6px;  opacity: 0.35; }
+  50%  { r: 10px; opacity: 0.15; }
+  100% { r: 6px;  opacity: 0.35; }
+}
+.dot-just-lit {
+  animation: dot-flash 0.5s ease-out forwards;
+}
+.ring-bloom {
+  animation: ring-bloom 0.7s ease-out forwards;
+  fill: none;
+}
+.ring-pulse {
+  animation: ring-pulse 2.4s ease-in-out infinite;
+  fill: none;
+}
+
+@media (max-width: 700px) {
+  .main-row { flex-direction: column; align-items: center; }
+  .gauge-outer { width: 320px; height: 320px; }
+  .gauge-inner { width: 294px; height: 294px; }
+  .event-grid { grid-template-columns: repeat(2,1fr); }
+}
+</style>
+</head>
 <body>
-<div id="container">
-<div id="branding" align="left">
-<p><i>For engineering drawing, your solution is...</i></p>
-<p align="center"><img src="IntuiCAD/intuiCADlogo.jpg" alt="intuiCAD logo" name="logoGraphic" width="620" height="132" /></p>
-<p align="right"><i>...because it's definitely about time!</i></p>
+
+<div class="header">
+  <div class="eyebrow">Structural Observation Instrument</div>
+  <div class="title">Design Room Stress Gage</div>
+  <div class="paper-titles">Design Intent as a Systemic Capability at Scale</div>
+  <div class="sub">Inverted Pressure Index · Multi-Layer Structural Analysis · 1980–2024</div>
 </div>
-<!-- end branding div -->
-<div id="mainNav">
-<ul>
-<li><a href="index.html">HOME</a></li>
-<li><a href="IntuiCAD/customizations.html">CUSTOMIZATIONS</a></li>
-<li><a href="IntuiCAD/designModules.html">DESIGN MODULES</a></li>
-<li><a href="IntuiCAD/aboutUs.html">ABOUT US</a></li>
-<li><a href="IntuiCAD/privacyPolicy.html">PRIVACY POLICY</a></li>
-<li><a href="IntuiCAD/contactUs.html">CONTACT US</a></li>
-</ul>
+
+<div class="main-row">
+  <!-- GAUGE COLUMN -->
+  <div class="gauge-wrap">
+    <div class="gauge-outer" id="gauge-outer">
+      <!-- Corner bolts -->
+      <div id="bolts"></div>
+      <div class="gauge-inner">
+        <svg id="gauge-svg" width="394" height="394" viewBox="0 0 394 394"
+          style="position:absolute;top:-13px;left:-13px;">
+          <defs>
+            <radialGradient id="piv" cx="35%" cy="35%">
+              <stop offset="0%" stop-color="#8a7a58"/>
+              <stop offset="100%" stop-color="#1e1a10"/>
+            </radialGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="2.5" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <!-- Subtle rings -->
+          <circle cx="197" cy="197" r="55" fill="none" stroke="#fff" stroke-width="0.3" opacity="0.02"/>
+          <circle cx="197" cy="197" r="78" fill="none" stroke="#fff" stroke-width="0.3" opacity="0.02"/>
+          <circle cx="197" cy="197" r="102" fill="none" stroke="#fff" stroke-width="0.3" opacity="0.02"/>
+          <circle cx="197" cy="197" r="126" fill="none" stroke="#fff" stroke-width="0.3" opacity="0.02"/>
+          <!-- Zone arc backgrounds -->
+          <path id="arc-coherent-bg" fill="none" stroke="#1a4a28" stroke-width="18"/>
+          <path id="arc-degraded-bg" fill="none" stroke="#4a3a08" stroke-width="18"/>
+          <path id="arc-critical-bg" fill="none" stroke="#4a1810" stroke-width="18"/>
+          <!-- Zone arc outlines -->
+          <path id="arc-coherent-ol" fill="none" stroke="#4a9e6b" stroke-width="1.5" opacity="0.65"/>
+          <path id="arc-degraded-ol" fill="none" stroke="#d4a017" stroke-width="1.5" opacity="0.65"/>
+          <path id="arc-critical-ol" fill="none" stroke="#e04030" stroke-width="1.5" opacity="0.65"/>
+          <!-- Active pressure arc -->
+          <path id="arc-active" fill="none" stroke-width="18" opacity="0.5"/>
+          <!-- Ticks -->
+          <g id="ticks"></g>
+          <!-- Zone labels -->
+          <text id="lbl-coherent" text-anchor="middle" dominant-baseline="middle" font-size="7.5" fill="#b8a880" opacity="0.6" letter-spacing="2" font-family="Georgia,serif">COHERENT</text>
+          <text id="lbl-degraded" text-anchor="middle" dominant-baseline="middle" font-size="7.5" fill="#b8a880" opacity="0.6" letter-spacing="2" font-family="Georgia,serif">DEGRADED</text>
+          <text id="lbl-critical" text-anchor="middle" dominant-baseline="middle" font-size="7.5" fill="#b8a880" opacity="0.6" letter-spacing="2" font-family="Georgia,serif">CRITICAL</text>
+          <!-- Inner layer arcs (DR, VT, FN) -->
+          <g id="inner-arcs"></g>
+          <!-- Counter needle (institutional response) -->
+          <line id="needle-response" stroke="#5BA4CF" stroke-width="2" stroke-linecap="round" opacity="0.85"/>
+          <!-- Pressure needle glow -->
+          <line id="needle-glow" stroke-width="9" stroke-linecap="round" opacity="0.2"/>
+          <!-- Pressure needle -->
+          <polygon id="needle-poly" filter="url(#glow)"/>
+          <line id="needle-tail" stroke-width="4" stroke-linecap="round" opacity="0.35"/>
+          <!-- Pivot -->
+          <circle cx="197" cy="197" r="18" fill="url(#piv)" stroke="#6a5a3a" stroke-width="2.5"/>
+          <circle cx="197" cy="197" r="7" fill="#d4b870"/>
+          <circle cx="197" cy="197" r="2.5" fill="#141210"/>
+          <!-- Readouts -->
+          <text x="197" y="255" text-anchor="middle" font-size="8" fill="#6a5a48" letter-spacing="3" font-family="Georgia,serif">DESIGN INTENT COHERENCE</text>
+          <text id="prod-text" x="197" y="268" text-anchor="middle" font-size="8.5" fill="#4a3a28" font-family="Courier New,monospace"/>
+          <text id="year-text" x="197" y="294" text-anchor="middle" font-size="30" font-weight="bold" fill="#e8d0a8" letter-spacing="2" font-family="Georgia,serif">1980</text>
+          <text x="197" y="311" text-anchor="middle" font-size="8" fill="#4a3828" letter-spacing="3" font-family="Courier New,monospace">YEAR</text>
+          <text id="pressure-text" x="197" y="330" text-anchor="middle" font-size="12" letter-spacing="1" font-family="Courier New,monospace">PRESSURE 0%</text>
+          <text x="197" y="348" text-anchor="middle" font-size="9" fill="#3a2e20" letter-spacing="4" font-family="Courier New,monospace">INEVITABLE</text>
+          <!-- Inner layer legend -->
+          <g id="inner-legend"></g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Needle legend -->
+    <div style="display:flex;gap:20px;font-size:9px;font-family:'Courier New',monospace;flex-wrap:wrap;justify-content:center;">
+      <div style="display:flex;align-items:center;gap:6px;">
+        <div style="width:24px;height:2px;border-radius:2px;" id="legend-pressure-line"></div>
+        <span style="color:#6a5a48">Coherence Pressure</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;">
+        <div style="width:24px;height:2px;background:#5BA4CF;border-radius:2px;"></div>
+        <span style="color:#6a5a48">Institutional Response</span>
+      </div>
+    </div>
+
+    <div class="gauge-premise">
+      A line had to earn its place on the sheet.<br>
+      The medium enforced that. The medium changed.<br>
+      <span class="reminder">Documentation grew. Understanding didn't travel with it.</span><br>
+      <span style="color:#9a6a40;font-style:italic;margin-top:3px;display:block;">The system did not fail. It started charging.</span>
+    </div>
+
+    <div class="deficit-box">
+      <div class="deficit-label">COHERENCE DEFICIT</div>
+      <div class="deficit-value" id="deficit-value">0pts</div>
+      <div class="deficit-sub">gap between needles</div>
+    </div>
+  </div>
+
+  <!-- RIGHT COLUMN -->
+  <div class="right-col">
+
+    <!-- Event card -->
+    <div class="event-card panel" id="event-card" style="border-left:3px solid #c8a060;">
+      <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+        <div class="event-layer-label" id="event-layer-label" style="color:#c8a060;">—</div>
+        <div class="event-impact" id="event-impact">IMPACT —</div>
+      </div>
+      <div class="event-title" id="event-title">Drag the slider to begin.</div>
+      <div class="event-detail" id="event-detail">Events illuminate as you move through structural history. Hover any dot on the timeline to inspect.</div>
+    </div>
+
+    <!-- Layer pressure bars -->
+    <div class="panel">
+      <div class="panel-title" id="layer-panel-title">Layer Pressure Breakdown — 1980</div>
+      <div id="layer-bars"></div>
+    </div>
+
+    <!-- Pressure zones -->
+    <div class="panel">
+      <div class="panel-title">Pressure Zones</div>
+      <div class="zone-row"><div class="zone-pip" style="background:#4a9e6b"></div><span style="font-size:11px;color:#4a9e6b;min-width:52px">Coherent</span><span style="font-size:10px;color:#6a5a40;min-width:36px;font-family:'Courier New',monospace">0–40%</span><span style="font-size:10px;color:#7a6a58;font-style:italic">Intent transmitted</span></div>
+      <div class="zone-row"><div class="zone-pip" style="background:#d4a017"></div><span style="font-size:11px;color:#d4a017;min-width:52px">Degraded</span><span style="font-size:10px;color:#6a5a40;min-width:36px;font-family:'Courier New',monospace">40–70%</span><span style="font-size:10px;color:#7a6a58;font-style:italic">Intent translated</span></div>
+      <div class="zone-row"><div class="zone-pip" style="background:#c0392b"></div><span style="font-size:11px;color:#c0392b;min-width:52px">Critical</span><span style="font-size:10px;color:#6a5a40;min-width:36px;font-family:'Courier New',monospace">70–100%</span><span style="font-size:10px;color:#7a6a58;font-style:italic">Intent recovered downstream</span></div>
+    </div>
+
+    <!-- Institutional responses -->
+    <div class="panel" style="flex:1;">
+      <div class="panel-title">Institutional Responses — Process Side</div>
+      <div class="response-note">
+        Counter-needle shows cumulative recovery attempts.<br>
+        Every response originates from the process or technology side.<br>
+        None address formation, proximity, or transmitted judgment.<br>
+        <span class="response-gap">The gap between the needles is the coherence deficit.</span>
+      </div>
+      <div class="response-scroll" id="response-list"></div>
+    </div>
+  </div>
 </div>
-<!-- end mainNav div -->
-<div id="sidebar1"><img src="IntuiCAD/oneRedBlock.gif" alt="&quot;&quot;" class="centerThis" width="140" height="35" /><img src="IntuiCAD/computerAidedDrawingDT5315296.jpg" alt="computerPhoto" vspace="10px" width="265" height="176" />
-<blockquote>The most perfect efficiency <br />is work already performed. <br />That perfection is reduced directly <br />by access and alteration.</blockquote>
-<img src="IntuiCAD/oneRedBlock.gif" alt="&quot;&quot;" class="centerThis" width="140" height="35" /></div>
-<!--end sidebar1 div-->
-<div id="mainContent">
-<h2>Introducing the only AutoCad add-on package that expertly combines the creation and editing processes, delivering  more complete and comprehensive solutions.</h2>
-<p>Although  AutoCad, as well as many other programs,  can accommodate  general drafting needs, many tasks  remain tedious and repetitive.   Intuicad effectively bridges this gap between static linework and dynamic libraries, placing you in control of your customizations while maximizing your profit potential.</p>
-<p>IntuiCAD is the first supplement to AutoCad designed specifically to exploit the life of a drawing in YOUR office environment. From creation through editing and even through additions, revisions and similar projects, each component has been attuned towards maximum productivity for all aspects of project duration.</p>
-<h3><span class="emphasis"><a href="index2.html">Drawing component manager</a></span> is a generic way of defining the innumerable tasks involved in electronic drawing compilation. IntuiCAD drawing component managers focus relentlessly on the needs of the user, asking of each component "what adjustments could ever be required". This not only allows for greater user interface but has a measurable impact on the mark-up and quality control processes.</h3>
-<h3>Our <span class="emphasis"><a href="index2.html">extensive study</a></span> of CAD systems (and system development) at a number of firms throughout the country represents an amount of compilation and research far beyond the means of any single office to sponsor. Our database grows with each new client and request. IntuiCAD is NOT a CAD standard but it will put you in firm control of distribution and maintenance of you company's own CAD standards.</h3>
-<h3><span class="emphasis"><a href="index2.html">Complete and comprehensive solutions</a></span> are those derived from actual project and field conditions by practicing engineers, designers and contractors. IntuiCAD software requires <span class="emphasis">no adjustments</span> to your existing AutoCad configurations and is compatible with <span class="emphasis">any</span> CAD standard.  IntuiCAD assimilates itself into your office practices, providing you with flexibility and performance right out of the box.</h3>
-<h3>Select a <a href="IntuiCAD/designModules.html" class="emphasis">design module</a> and find out how IntuiCAD can help you optimize your CAD performance!</h3>
-<!-- end mainContent div --> <!--sidebar2 starts here-->
-<div id="sidebar2"><a href="http://www.adda.org" target="_blank"><img src="IntuiCAD/addaLogoSmall.jpg" alt="adda logo" width="136" height="83" /></a>
-  <p>IntuiCAD SCM is considered a fundamental component to the design drafting profession by the American Design Drafting Association. IntuiCAD SCM and its related material is relevant to the delivery of the design drafting process.</p>
-  <p>... ADDA feels, it should be considered a key reference tool in furthering the knowledge, abilities, and skills of a properly trained designer or drafter in their pursuit of a professional career and job performance on a daily basis.</p>
+
+<!-- CONTROLS -->
+<div class="controls-row">
+  <button class="btn btn-play" id="btn-play" onclick="togglePlay()">▶ PLAY</button>
+  <div style="flex:1;display:flex;flex-direction:column;gap:2px;">
+    <input type="range" id="year-slider" min="1980" max="2024" value="1980" oninput="onSlider(this.value)" style="width:100%;">
+    <div class="slider-labels">
+      <span>1981 — Origin Event</span>
+      <span>Drag to advance through structural history</span>
+      <span>2024 — Total Inversion</span>
+    </div>
+  </div>
+  <button class="btn btn-reset" onclick="resetGauge()">↺ RESET</button>
 </div>
-<!--end Sidebar2 div--></div>
-<div id="spacer"><img src="IntuiCAD/3redBlocks.gif" alt="&quot;&quot;" class="clearfloat" width="265" height="35" /></div>
-<div id="siteInfo">
-<ul>
-<li><a href="index.html">HOME</a></li>
-<li>|</li>
-<li><a href="IntuiCAD/customizations.html">CUSTOMIZATIONS</a></li>
-<li>|</li>
-<li><a href="IntuiCAD/designModules.html">DESIGN MODULES</a></li>
-<li>|</li>
-<li><a href="IntuiCAD/aboutUs.html">ABOUT US</a></li>
-<li>|</li>
-<li><a href="IntuiCAD/privacyPolicy.html">PRIVACY POLICY</a></li>
-<li>|</li>
-<li><a href="IntuiCAD/contactUs.html">CONTACT US</a></li>
-</ul>
-<p>&copy;Copyright 2009 IntuiCAD, LLC. All rights reserved.</p>
+
+<!-- TIMELINE -->
+<div class="timeline-section">
+  <div class="timeline-header">Structural Stress Events by Layer · Hover to Inspect · Click to Set Year</div>
+  <!-- Era band -->
+  <div style="overflow-x:auto;margin-bottom:2px;">
+    <svg id="era-svg" width="100%" viewBox="0 0 860 22" style="display:block;"></svg>
+  </div>
+  <!-- Main timeline -->
+  <div style="overflow-x:auto;">
+    <svg id="timeline-svg" width="100%" viewBox="0 0 860 120" style="display:block;overflow:visible;"></svg>
+  </div>
+  <div class="layer-legend" id="layer-legend"></div>
 </div>
-<!-- end siteInfo div --></div>
-<p><!-- end container div --></p>
-<div style="position:absolute;filter:alpha(opacity=0);opacity:0.001;z-index:10;">                                        </div></body>
+
+<!-- DEVICE TABLE -->
+<div class="device-section">
+  <div class="panel-title" style="margin-bottom:8px;">Reception Degradation — The Mechanical Breaks</div>
+  <table class="device-table">
+    <thead>
+      <tr><th>DEVICE</th><th>THE VERB</th><th>THE MECHANICAL BREAK</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>The Fax Machine</td><td>Abridge</td><td>It stripped the Alphabet of Lines of its resolution, making the drawing a suggestion rather than a command.</td></tr>
+      <tr><td>The Office Printer</td><td>Invalidate</td><td>By Scaling to Fit, it broke the sacred link between the ruler and the paper. The math became a lie.</td></tr>
+      <tr><td>The Cell Phone</td><td>Fragment</td><td>It moved the Source of Truth from the coordinated set to a private conversation, bypassing the Drafter entirely.</td></tr>
+      <tr><td>The Email PDF</td><td>Staticize</td><td>It turned a living, vector-based language into a flat image — read-only and dead to further logic.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- EVENT GRID -->
+<div class="event-grid-section" id="event-grid-section"></div>
+
+<div class="footer">
+  FROM THE PAPER: DESIGN INTENT AS A SYSTEMIC CAPABILITY AT SCALE<br>
+  OBSERVATIONAL INSTRUMENT · designintentlinguist.com · r/LanguageOfDrafting<br>
+  BASIS: BLS CONSTRUCTION PRODUCTIVITY INDEX (1987=100) · WEIGHTED LAYER PRESSURE MODEL<br>
+  <span style="color:#3a2010;">ORIGIN EVENT: HYATT REGENCY 1981 · FIRST CURRICULUM EXTRACTION · ZERO COMPENSATING RESPONSES · 44 YEARS</span><br>
+  <span style="color:#2a1808;">EVERY RFI · EVERY CHANGE ORDER · EVERY CONSERVATIVE DECISION THAT NEVER GOT PRESSURE-TESTED — THIS IS THE COST OF SPEAKING</span>
+</div>
+
+<script>
+// ── DATA ────────────────────────────────────────────────────────────────────
+
+const productivityData = [
+  {year:1980,value:101.2},{year:1981,value:101.0},{year:1982,value:100.8},
+  {year:1983,value:100.6},{year:1984,value:100.4},{year:1985,value:100.2},
+  {year:1986,value:100.1},{year:1987,value:100},{year:1988,value:99.8},
+  {year:1989,value:99.5},{year:1990,value:99.4},{year:1991,value:99.2},
+  {year:1992,value:99.0},{year:1993,value:98.9},{year:1994,value:98.8},
+  {year:1995,value:98.8},{year:1996,value:98.5},{year:1997,value:98.1},
+  {year:1998,value:98.0},{year:1999,value:98.1},{year:2000,value:98.0},
+  {year:2001,value:97.5},{year:2002,value:97.0},{year:2003,value:96.8},
+  {year:2004,value:96.6},{year:2005,value:96.5},{year:2006,value:96.1},
+  {year:2007,value:95.8},{year:2008,value:95.5},{year:2009,value:95.2},
+  {year:2010,value:95.2},{year:2011,value:95.0},{year:2012,value:94.7},
+  {year:2013,value:94.5},{year:2014,value:94.2},{year:2015,value:94.0},
+  {year:2016,value:93.7},{year:2017,value:93.4},{year:2018,value:93.0},
+  {year:2019,value:92.8},{year:2020,value:92.5},{year:2021,value:92.2},
+  {year:2022,value:91.8},{year:2023,value:91.5},{year:2024,value:91.2},
+];
+
+const LAYERS = {
+  drafting:   {label:'Drafting Room Pressure',          color:'#c8a060', short:'DR'},
+  vocational: {label:'Vocational & Technical Education', color:'#7ab0c8', short:'VT'},
+  field:      {label:'Field & Shop Exposure',           color:'#90b878', short:'FS'},
+  data:       {label:'Data Anchors',                    color:'#a08898', short:'DA'},
+};
+
+const RESPONSES = [
+  {year:1984, label:'Perkins Vocational Act',       detail:'Academic bias accelerates'},
+  {year:1992, label:'ISO 9001 Adoption',            detail:'Procedure substitutes for judgment'},
+  {year:1999, label:'PMP Certification Boom',       detail:'Coordination formalized, formation excluded'},
+  {year:2003, label:'BIM Coordination Solution',    detail:'Ownership fragmented further'},
+  {year:2009, label:'Lean / IPD Adoption',          detail:'Required fluency already absent'},
+  {year:2016, label:'ConTech VC $2.5B→$10.2B',     detail:'Capital treats symptoms'},
+  {year:2022, label:'Borrower Defense $6B',         detail:'Liability resolved, capacity unrestored'},
+  {year:2024, label:'AI Documentation',             detail:'Volume accelerates, density does not recover'},
+];
+
+const ERAS = [
+  {label:'PRODUCER HEGEMONY', start:1980, end:1998, color:'#4a9e6b'},
+  {label:'EQUILIBRIUM',       start:1998, end:2005, color:'#d4a017'},
+  {label:'GREAT DIVERGENCE',  start:2005, end:2012, color:'#c87830'},
+  {label:'COASTING ERA',      start:2012, end:2021, color:'#c0392b'},
+  {label:'MANAGERIAL HEGEMONY',start:2021,end:2024, color:'#7a1010'},
+];
+
+const allEvents = [
+  // ORIGIN EVENT
+  {year:1981,layer:'field',impact:18,origin:true,title:'Hyatt Regency Collapse — Origin Event',detail:'Kansas City. 114 deaths. The profession responded as professions do — through liability. The liability response removed the first brick from the training environment without anyone recognizing it as curriculum extraction. Legal event. Institutional event. Training event. Language event. Cultural event. Compounding event. First of many irreversible extractions. No compensating response ever filed at any subsequent revision.'},
+  // DRAFTING ROOM
+  {year:1982,layer:'drafting',impact:18,title:'AutoCAD 1.0 Released',detail:'Board drafting begins displacement. Drafters become operators rather than authors.'},
+  {year:1985,layer:'drafting',impact:22,title:'CAD Adoption Accelerates',detail:'Senior drafters retrain or exit in large firms. Institutional memory begins fragmenting.'},
+  {year:1989,layer:'drafting',impact:30,title:'Drafting as Trade Language Ends',detail:'Effectively ends in most university programs. Replaced by CAD operation.'},
+  {year:1992,layer:'drafting',impact:36,title:'1992 — The Board Goes Dark',detail:'Assigned to the board. CAD was still too slow, too untrusted for schedule-sensitive work. Started manually. Shadowed in AutoCAD at night. Eventually the board version was replaced — the CAD version was submitted. No announcement. No comparison was ever run. The next project started in CAD without discussion. That was how it happened everywhere. Not a decision. A replacement.'},
+  {year:1994,layer:'drafting',impact:42,title:'Full CAD Displacement',detail:'Last generation trained on boards begins retiring. Hand sketching ends in production. Transmission pathway closes.'},
+  {year:1990,layer:'drafting',impact:33,title:'Stamp Language Shifts — "Approved" Disappears',detail:'Review stamps move from "Approved" to "No Exceptions Taken," "Furnish As Noted," "Reviewed." The authority withdrawal becomes visible on every sheet. Juniors learn that shop drawings are compliance procedures, not judgment events. The word change preceded the delegation. The delegation followed naturally.'},
+  {year:1990,layer:'drafting',impact:34,title:'Untaping the Sheet',detail:'Not an event. A threshold crossed universally and individually. The first erosion of the drafter\'s gatekeeping responsibility. The first gap between judgment and proximity to formation. No announcement. No memo. It happened in every office at a slightly different moment — the same crossing, the same loss, the same silence after.'},
+  {year:1995,layer:'drafting',impact:48,title:'Engineer\'s Language Training Severs',detail:'As drafter becomes CAD operator, the engineer loses sole informal access to language formation. The BS never contained it. Language formation arrived through daily proximity to the draftsman — every markup, every pushback, every question about what the drawing needed to show. That friction was the training. When the drafter became a cleric, the friction ended. No curriculum replacement was ever proposed.'},
+  {year:1997,layer:'drafting',impact:60,title:'Decoupling — Engineers Become Modelers',detail:'Engineering graduates enter production modeling without exposure to drafting language, shop drawing formation, or apprenticeship transmission. Authority separates from proximity to formation.'},
+  {year:2000,layer:'drafting',impact:55,title:'Offshore Drafting Services Scale',detail:'Separation of formation authority from drawing production becomes standard practice.'},
+  {year:2002,layer:'drafting',impact:65,title:'Bluebeam Released',detail:'Annotation without comprehension normalized. The markup replaces the conversation.'},
+  {year:2003,layer:'drafting',impact:62,title:'Revit — BIM Begins',detail:'3D democratizes viewing, decouples geometry from intent. Drawing ownership fragments across disciplines and vendors.'},
+  {year:2008,layer:'drafting',impact:82,title:'Financial Crisis — Propagation Layer Lost',detail:'Mass layoffs eliminate mid-career drafters and designers. The propagation layer. Never fully rebuilt.'},
+  {year:2010,layer:'drafting',impact:76,title:'Shop Drawing Proceduralization',detail:'Fully normalized. Modeler and reviewer no longer share a language. Compliance replaces comprehension.'},
+  {year:2006,layer:'drafting',impact:66,title:'Modelers Have Never Seen Shop Drawings',detail:'By Revit\'s arrival, the review has been delegated and proceduralized completely. The modeler inhabits an environment where the fabrication interface does not exist as a visible domain. The blindness is generational and self-perpetuating. This is also the underlying motivation for digital twins — the profession spending capital to reconstruct synthetically the spatial understanding that once developed for free by standing next to the lead during review.'},
+  {year:2012,layer:'drafting',impact:80,title:'BIM Mandates Proliferate',detail:'Public sector mandates. Model coordination replaces drawing authorship as primary workflow.'},
+  {year:2020,layer:'drafting',impact:90,title:'Remote Work Severs Formation Proximity',detail:'Markup replaces dialogue as primary review mode. The last physical proximity between authority and formation ends.'},
+  // VOCATIONAL
+  {year:1983,layer:'vocational',impact:16,title:'"A Nation at Risk" Report',detail:'Redirects education policy toward academic tracks. Shop and vocational programs begin systematic defunding.'},
+  {year:1988,layer:'vocational',impact:26,title:'Hickok Technical Institute Closes — Cleveland, OH',detail:'One of hundreds of technical schools closing in this window. The student loan scandals preceded the closures — the institutions absorbed federal loan expansion, credential inflation followed, and the closures erased the capacity without restoring it. The last cohort trained here entered a profession that had already begun its contractual withdrawal from the fabrication interface.'},
+  {year:1984,layer:'vocational',impact:20,title:'Perkins Act / Academic Bias Accelerates',detail:'Vocational funding restructured but academic bias deepens. Drafting as a high school subject begins disappearing.'},
+  {year:1990,layer:'vocational',impact:32,title:'Shop Class Enrollment Collapses',detail:'Urban school districts. Hands-on formation of spatial and material intuition ends for a generation.'},
+  {year:1998,layer:'vocational',impact:42,title:'For-Profit Technical College Surge',detail:'ITT Tech, DeVry, Corinthian expand under expanded federal loan access. Pipeline appears to grow; quality does not.'},
+  {year:2004,layer:'vocational',impact:50,title:'GAO Investigation — For-Profit Schools',detail:'Predatory enrollment and credential inflation documented. Reform deferred. Pipeline integrity compromised silently.'},
+  {year:2010,layer:'vocational',impact:60,title:'Senate Investigation — Corinthian Flagged',detail:'100,000+ students enrolled in federally flagged programs. The pipeline is known to be broken. Action delayed.'},
+  {year:2015,layer:'vocational',impact:72,title:'Corinthian Colleges Collapses',detail:'72,000 students displaced. $3.5B in federal loans implicated. Practical technical pipeline severed for thousands.'},
+  {year:2016,layer:'vocational',impact:78,title:'ITT Technical Institute Closes',detail:'35,000 students, 8,000 employees. One of the largest vocational closures in US history. No equivalent replacement built.'},
+  {year:2019,layer:'vocational',impact:83,title:'Dream Center / Art Institutes Collapse',detail:'Further displacement of mid-tier technical and design education. Each closure is permanent capacity loss.'},
+  {year:2022,layer:'vocational',impact:87,title:'$6B+ Borrower Defense Discharges',detail:'Political resolution of the debt. The educational capacity was not restored — only the liability acknowledged.'},
+  // FIELD & SHOP
+  {year:1980,layer:'field',impact:10,title:'Construction Apprenticeship Peaks',detail:'Union training programs at maximum capacity. Field exposure embedded in career formation.'},
+  {year:1982,layer:'field',impact:17,title:'Recession Decimates Apprenticeships',detail:'Programs contract sharply. A cohort of would-be field-trained designers redirects permanently.'},
+  {year:1987,layer:'field',impact:24,title:'AIA A201 Revised — Review Scope First Narrowed',detail:'First formal contractual limitation of the design professional\'s review scope. Downstream of Hyatt 1981. The lead begins legal withdrawal from the fabrication interface. The classroom loses its instructor by contract. First ratchet turn of four.'},
+  {year:1988,layer:'field',impact:27,title:'Downtown Office Dispersal Begins',detail:'AEC firms relocate to suburban campuses and office parks. Proximity to fabricators, print shops, building departments, and cross-trade colleagues dissolves. The informal daily contact that transmitted intent — elevator conversations, print counter exchanges, Tuesday fabricator visits — ends without announcement. No process replaces the ecology.'},
+  {year:1986,layer:'field',impact:24,title:'OSHA Site Access Restrictions Tighten',detail:'Engineering interns and junior designers increasingly excluded from active construction sites.'},
+  {year:1992,layer:'field',impact:34,title:'Cross-Trade Ecology Gone',detail:'By the early 1990s, the informal daily contact between disciplines that prevented RFIs, resolved coordination issues, and maintained cross-trade fluency has dissolved. The mechanical engineer is no longer two floors up. The steel detailer is no longer around the corner. The question that would have been answered in the hall becomes a formal submittal. No one files a report on the loss.'},
+  {year:1993,layer:'field',impact:36,title:'Liability Severs Designer-Fabricator Interface',detail:'Insurance requirements begin formally separating design firms from fabrication shops. The A201 contractual narrowing now has a commercial reinforcement. Structural severance is complete at both the legal and insurance layers.'},
+  {year:1997,layer:'field',impact:45,title:'AIA A201 Revised — Language Further Narrowed',detail:'Second contraction of review scope. Delegation authority expanded. The stamp language has already shifted. The contractual framework now supports what the profession had informally adopted. Second ratchet turn. None reversed.'},
+  {year:2000,layer:'field',impact:50,title:'Reprographics Infrastructure Collapses',detail:'Local blueprint and reprographics firms — the physical home of the shop drawing fold, the revision drawer, the scanning protocol, and the fabricator\'s Tuesday visit — decline from ~30,000 establishments in 1990 to 7,743 by 2000. The fold was not housekeeping. It was information architecture: title block visible without opening, revision status readable in the drawer, critical details facing out by convention. That system had spatial compression, hierarchical visibility, and instant retrieval. It closed with the shop.'},
+  {year:2000,layer:'field',impact:48,title:'Digital Delivery Normalizes Remote Design',detail:'Engineers increasingly form decisions without physical exposure to scale, material, or assembly sequence.'},
+  {year:2005,layer:'field',impact:58,title:'Union Apprenticeship at Multi-Decade Low',detail:'Relative to construction volume. Trade knowledge concentrating in aging workforce.'},
+  {year:2007,layer:'field',impact:66,title:'AIA A201 Revised — Delegation Expanded',detail:'Third revision. Contractor responsibility maximized further. The EOR\'s formal presence at the fabrication interface is now contractually minimal. Junior review is standard. The transmission event is proceduralized completely. Third ratchet turn.'},
+  {year:2008,layer:'field',impact:70,title:'Post-Crisis Field Knowledge Exit',detail:'Experienced field and shop workers exit permanently. The informal mentorship structure does not recover with volume.'},
+  {year:2015,layer:'field',impact:79,title:'Skilled Trades Avg. Age Reaches 49',detail:'Knowledge transfer rate from experienced to entry-level at critical threshold. The clock is now visible.'},
+  {year:2017,layer:'field',impact:83,title:'AIA A201 Revised — Contractor Responsibility Maximized',detail:'Fourth and final revision. Section 4.2.7 limits review explicitly to conformance checking only. Accuracy, quantities, dimensions: contractor\'s domain. 36 years after Hyatt, the liability response reaches its logical conclusion. Four ratchet turns. Zero compensating mechanisms filed at any revision. The gatekeeping authority that once required no license — only proximity, exposure, and earned fluency — has been contractually extinguished.'},
+  {year:2020,layer:'field',impact:91,title:'COVID — Full Cohort Forms Without Site Contact',detail:'Junior designers lose remaining site exposure during critical formation years. A generation shapes without touch.'},
+  // DATA ANCHORS
+  {year:1986,layer:'data',impact:14,title:'IBC Baseline — 450 Pages · 106 PMP Holders',detail:'Foundation year. Draftsman as producer. Regulatory surface and process overhead both begin their uninterrupted expansion.'},
+  {year:1987,layer:'data',impact:16,title:'Productivity Index Set at 100',detail:'The trade standard for performance. Every subsequent year is measured against this baseline.'},
+  {year:1990,layer:'data',impact:20,title:'Human Capital Peak: 320k Drafters / 200k Managers',detail:'Ratio 1.6:1. Producer Hegemony. The only moment in the record when formation capacity exceeds coordination overhead.'},
+  {year:1992,layer:'data',impact:24,title:'PMP Certifications: 830 Holders',detail:'Project management formalization begins. Process overhead enters delivery as a distinct discipline.'},
+  {year:1995,layer:'data',impact:30,title:'ConTech Inception — VC Enters at $10M',detail:'Seeds of software-driven coasting. Capital begins treating the symptom layer.'},
+  {year:1997,layer:'data',impact:34,title:'IBC Grows to 580 Pages',detail:'Regulatory expansion. Bureaucratic load increases without proportional growth in interpretive capacity.'},
+  {year:1998,layer:'data',impact:38,title:'The Equilibrium — Production Meets Oversight 1:1',detail:'Literacy parity ends. For the first time, coordination staff equals production staff. The ratio never recovers.'},
+  {year:1999,layer:'data',impact:44,title:'PMP Boom — 15,000 Holders',detail:'Explosive growth in standardized processes. Procedure begins displacing embedded judgment as the delivery norm.'},
+  {year:2000,layer:'data',impact:48,title:'PMP Holders Jump 315% in Two Years',detail:'Coordination formalized. Formation excluded. The process layer becomes its own career track.'},
+  {year:2003,layer:'data',impact:52,title:'Management Explosion',detail:'Shift from Building to Managing the Building. The verb changes. The product follows.'},
+  {year:2005,layer:'data',impact:56,title:'The Intervention — <a href="/IntuiCAD/" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">IntuiCAD</a>',detail:'Logic-based restraint created from inside the practice. The Great Divergence begins. Revit made it DOA.'},
+  {year:2006,layer:'data',impact:60,title:'IBC 710 Pages · FAR 7,100 Pages',detail:'Regulatory complexity registers simultaneously in building code and federal procurement. Intent surface expands; interpretive density does not.'},
+  {year:2009,layer:'data',impact:68,title:'RFI Rate: 3.4 per $1M',detail:'Coordination failure becomes measurable. Questions replace embedded answers. The RFI carries load it was never designed for.'},
+  {year:2009,layer:'data',impact:68,title:'Software Ribbon Interface Introduced',detail:'Command-line literacy begins to evaporate. The interface removes the requirement to know what you are asking the tool to do.'},
+  {year:2012,layer:'data',impact:66,title:'The Coasting Era — Oversight Doubles Drafters',detail:'395k managers vs 205k drafters. Ratio 0.52:1. Change orders hit 5.9% of contract value.'},
+  {year:2015,layer:'data',impact:72,title:'RFI Frequency: 4.2 per $1M',detail:'Change orders impact 7.2% of contract. Noise saturation. The coordination channel is overwhelmed.'},
+  {year:2018,layer:'data',impact:88,title:'IBC Nears 1,000 Pages',detail:'Complexity threshold. Admin load chokes production. The regulatory surface now requires its own specialists.'},
+  {year:2021,layer:'data',impact:83,title:'Managerial Hegemony — 1.2M PMP Holders',detail:'The engineer — linguistically unformed because the drafter became a cleric — now manages the review process that was the last transmission environment, certified by PMP. The credential does not fill the gap left by the drafter. It formalizes the gap as a qualification. 1.2 million people certified to manage a transmission event they were never trained to understand.'},
+  {year:2024,layer:'data',impact:96,title:'Total Inversion — 550k Managers / 160k Drafters',detail:'Productivity at 91.2. Change orders at 10.5%. ConTech VC at $10.2B. Peak Coasting. The arc completes.'},
+].sort((a,b) => a.year !== b.year ? a.year - b.year : a.layer.localeCompare(b.layer));
+
+// ── PRESSURE MODEL ───────────────────────────────────────────────────────────
+
+const weights = {drafting:0.40, vocational:0.20, field:0.25, data:0.15};
+
+function getLayerPressure(layerKey, year) {
+  const past = allEvents.filter(e => e.layer === layerKey && e.year <= year);
+  if (!past.length) return 0;
+  const maxImpact = Math.max(...past.map(e => e.impact));
+  const future = allEvents.filter(e => e.layer === layerKey && e.year > year);
+  if (!future.length) return Math.min(maxImpact + (year - past[past.length-1].year) * 0.3, 95);
+  const last = past[past.length-1];
+  const next = future[0];
+  const t = (year - last.year) / (next.year - last.year);
+  return maxImpact + (next.impact - maxImpact) * Math.min(t, 1) * 0.5;
+}
+
+function getCompositePressure(year) {
+  let total = 0, wsum = 0;
+  Object.keys(weights).forEach(lk => {
+    const p = getLayerPressure(lk, year);
+    if (p > 0) { total += p * weights[lk]; wsum += weights[lk]; }
+  });
+  return wsum > 0 ? Math.min((total / wsum) / 100, 1) : 0.05;
+}
+
+function getResponse(year) {
+  const r = RESPONSES.filter(x => x.year <= year);
+  if (!r.length) return 0.05;
+  return Math.min((r.length * 7 + (year - 1980) * 0.2), 55) / 100;
+}
+
+function zoneColor(p) {
+  if (p < 0.4) return '#4a9e6b';
+  if (p < 0.7) return '#d4a017';
+  return '#c0392b';
+}
+
+function pToAngle(p) { return -225 + p * 270; }
+function degToRad(d) { return d * Math.PI / 180; }
+function polar(cx, cy, r, a) {
+  return {x: cx + r * Math.cos(degToRad(a)), y: cy + r * Math.sin(degToRad(a))};
+}
+function svgArc(cx, cy, r, a1, a2) {
+  const s = polar(cx,cy,r,a1), e = polar(cx,cy,r,a2);
+  return `M ${s.x} ${s.y} A ${r} ${r} 0 ${(a2-a1)>180?1:0} 1 ${e.x} ${e.y}`;
+}
+
+// ── STATE ────────────────────────────────────────────────────────────────────
+
+let currentYear = 1980;
+let animPressure = 0.05;
+let prevPressure = 0.05;
+let playing = false;
+let playInterval = null;
+let animFrame = null;
+let hoveredEvent = null;
+
+const CX = 197, CY = 197, R = 138;
+const TLW = 800, TLPAD = 52;
+const yrX = y => TLPAD + ((y-1980)/44)*(TLW-TLPAD*2);
+
+const layerOrder = ['drafting','vocational','field','data'];
+const layerRowY = {drafting:18, vocational:38, field:58, data:78};
+
+// ── INIT ─────────────────────────────────────────────────────────────────────
+
+(function init() {
+  // Bolts
+  const outer = document.getElementById('gauge-outer');
+  [30,120,210,300].forEach(ang => {
+    const d = document.createElement('div');
+    const rx = 200 + 190*Math.cos(degToRad(ang));
+    const ry = 200 + 190*Math.sin(degToRad(ang));
+    Object.assign(d.style, {
+      position:'absolute', left:(rx-7)+'px', top:(ry-7)+'px',
+      width:'14px', height:'14px', borderRadius:'50%',
+      background:'radial-gradient(circle at 32% 32%, #8a7a58, #282010)',
+      border:'1px solid #5a4830',
+    });
+    outer.appendChild(d);
+  });
+
+  // Static gauge arcs
+  document.getElementById('arc-coherent-bg').setAttribute('d', svgArc(CX,CY,R-4,-225,-225+270*0.4));
+  document.getElementById('arc-degraded-bg').setAttribute('d', svgArc(CX,CY,R-4,-225+270*0.4,-225+270*0.7));
+  document.getElementById('arc-critical-bg').setAttribute('d', svgArc(CX,CY,R-4,-225+270*0.7,45));
+  document.getElementById('arc-coherent-ol').setAttribute('d', svgArc(CX,CY,R-4,-225,-225+270*0.4));
+  document.getElementById('arc-degraded-ol').setAttribute('d', svgArc(CX,CY,R-4,-225+270*0.4,-225+270*0.7));
+  document.getElementById('arc-critical-ol').setAttribute('d', svgArc(CX,CY,R-4,-225+270*0.7,45));
+
+  // Zone labels
+  function setZoneLabel(id, frac, text) {
+    const p = polar(CX,CY,R-38,pToAngle(frac));
+    const el = document.getElementById(id);
+    el.setAttribute('x',p.x); el.setAttribute('y',p.y);
+    el.textContent = text;
+  }
+  setZoneLabel('lbl-coherent',0.12,'COHERENT');
+  setZoneLabel('lbl-degraded',0.5,'DEGRADED');
+  setZoneLabel('lbl-critical',0.88,'CRITICAL');
+
+  // Ticks
+  const tg = document.getElementById('ticks');
+  for (let i=0; i<=20; i++) {
+    const p = i/20, ang = pToAngle(p), major = i%4===0;
+    const o = polar(CX,CY,R-4,ang), inn = polar(CX,CY,R-(major?24:12),ang);
+    const line = document.createElementNS('http://www.w3.org/2000/svg','line');
+    line.setAttribute('x1',o.x); line.setAttribute('y1',o.y);
+    line.setAttribute('x2',inn.x); line.setAttribute('y2',inn.y);
+    line.setAttribute('stroke', major?'#c8a870':'#3a2820');
+    line.setAttribute('stroke-width', major?2:0.8);
+    tg.appendChild(line);
+  }
+
+  // Inner layer legend
+  const il = document.getElementById('inner-legend');
+  ['drafting','vocational','field'].forEach((lk,li) => {
+    const c = LAYERS[lk].color;
+    const circle = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    circle.setAttribute('cx', CX - 38 + li*38);
+    circle.setAttribute('cy', CY + 112);
+    circle.setAttribute('r', '3.5');
+    circle.setAttribute('fill', c);
+    circle.setAttribute('opacity','0.8');
+    il.appendChild(circle);
+    const t = document.createElementNS('http://www.w3.org/2000/svg','text');
+    t.setAttribute('x', CX - 32 + li*38);
+    t.setAttribute('y', CY + 115);
+    t.setAttribute('font-size','6');
+    t.setAttribute('fill',c);
+    t.setAttribute('opacity','0.7');
+    t.setAttribute('font-family','Courier New,monospace');
+    t.textContent = LAYERS[lk].short;
+    il.appendChild(t);
+  });
+
+  // Response list
+  const rl = document.getElementById('response-list');
+  RESPONSES.forEach(r => {
+    const div = document.createElement('div');
+    div.className = 'response-row';
+    div.id = 'resp-'+r.year;
+    div.style.opacity = '0.2';
+    div.innerHTML = `<span class="response-year">${r.year}</span><span class="response-label">${r.label}</span><span class="response-detail"> — ${r.detail}</span>`;
+    rl.appendChild(div);
+  });
+
+  // Layer bars
+  const lb = document.getElementById('layer-bars');
+  Object.entries(LAYERS).forEach(([key, layer]) => {
+    const div = document.createElement('div');
+    div.className = 'bar-row';
+    div.innerHTML = `
+      <div class="bar-header">
+        <span class="bar-label" style="color:${layer.color}">${layer.label}</span>
+        <span class="bar-pct" id="pct-${key}">0%</span>
+      </div>
+      <div class="bar-track"><div class="bar-fill" id="bar-${key}" style="width:0%;background:${layer.color}"></div></div>`;
+    lb.appendChild(div);
+  });
+
+  // Layer legend in timeline
+  const ll = document.getElementById('layer-legend');
+  Object.entries(LAYERS).forEach(([key, layer]) => {
+    ll.innerHTML += `<div class="layer-legend-item">
+      <div class="layer-legend-dot" style="background:${layer.color};opacity:0.8"></div>
+      <span class="layer-legend-label" style="color:${layer.color};opacity:0.7">${layer.label}</span>
+    </div>`;
+  });
+
+  buildEraBand();
+  buildTimeline();
+  buildEventGrid();
+  updateGauge(1980, true);
+})();
+
+// ── ERA BAND ─────────────────────────────────────────────────────────────────
+
+function buildEraBand() {
+  const svg = document.getElementById('era-svg');
+  ERAS.forEach(era => {
+    const x1 = yrX(era.start), x2 = yrX(era.end), w = x2-x1;
+    const rect = document.createElementNS('http://www.w3.org/2000/svg','rect');
+    rect.setAttribute('x',x1); rect.setAttribute('y','0');
+    rect.setAttribute('width',w); rect.setAttribute('height','14');
+    rect.setAttribute('fill',era.color); rect.setAttribute('opacity','0.15'); rect.setAttribute('rx','2');
+    svg.appendChild(rect);
+    const line = document.createElementNS('http://www.w3.org/2000/svg','line');
+    line.setAttribute('x1',x1); line.setAttribute('y1','0');
+    line.setAttribute('x2',x1); line.setAttribute('y2','14');
+    line.setAttribute('stroke',era.color); line.setAttribute('stroke-width','1'); line.setAttribute('opacity','0.4');
+    svg.appendChild(line);
+    if (w > 28) {
+      const t = document.createElementNS('http://www.w3.org/2000/svg','text');
+      t.setAttribute('x',x1+w/2); t.setAttribute('y','10');
+      t.setAttribute('text-anchor','middle'); t.setAttribute('font-size','6');
+      t.setAttribute('fill',era.color); t.setAttribute('letter-spacing','1.2');
+      t.setAttribute('font-family',"'Courier New',monospace"); t.setAttribute('opacity','0.9');
+      t.textContent = era.label;
+      svg.appendChild(t);
+    }
+  });
+  const yl = document.createElementNS('http://www.w3.org/2000/svg','line');
+  yl.setAttribute('id','era-yearline'); yl.setAttribute('y1','0'); yl.setAttribute('y2','14');
+  yl.setAttribute('stroke','#e8d0a8'); yl.setAttribute('stroke-width','1'); yl.setAttribute('opacity','0.4');
+  svg.appendChild(yl);
+}
+
+// ── TIMELINE ─────────────────────────────────────────────────────────────────
+
+function buildTimeline() {
+  const svg = document.getElementById('timeline-svg');
+  const prodPts = productivityData.map(d =>
+    `${yrX(d.year)},${10 + 28 - ((d.value-91)/10.2)*28}`).join(' ');
+
+  // Productivity curve
+  const poly = document.createElementNS('http://www.w3.org/2000/svg','polygon');
+  poly.setAttribute('points', prodPts + ` ${yrX(2024)},38 ${yrX(1980)},38`);
+  poly.setAttribute('fill','#1a1408'); poly.setAttribute('opacity','0.7');
+  svg.appendChild(poly);
+  const pline = document.createElementNS('http://www.w3.org/2000/svg','polyline');
+  pline.setAttribute('points',prodPts); pline.setAttribute('fill','none');
+  pline.setAttribute('stroke','#3a3018'); pline.setAttribute('stroke-width','1.2');
+  svg.appendChild(pline);
+
+  // Year line
+  const yl = document.createElementNS('http://www.w3.org/2000/svg','line');
+  yl.setAttribute('id','tl-yearline'); yl.setAttribute('y1','4'); yl.setAttribute('y2','105');
+  yl.setAttribute('stroke-width','1.5'); yl.setAttribute('stroke-dasharray','3,3'); yl.setAttribute('opacity','0.8');
+  svg.appendChild(yl);
+
+  // Layer baselines + labels
+  layerOrder.forEach(lk => {
+    const ry = layerRowY[lk] + 4;
+    const bl = document.createElementNS('http://www.w3.org/2000/svg','line');
+    bl.setAttribute('x1',TLPAD); bl.setAttribute('y1',ry);
+    bl.setAttribute('x2',TLW-TLPAD); bl.setAttribute('y2',ry);
+    bl.setAttribute('stroke',LAYERS[lk].color); bl.setAttribute('stroke-width','0.3'); bl.setAttribute('opacity','0.2');
+    svg.appendChild(bl);
+    const t = document.createElementNS('http://www.w3.org/2000/svg','text');
+    t.setAttribute('x',TLPAD-4); t.setAttribute('y',ry+4);
+    t.setAttribute('text-anchor','end'); t.setAttribute('font-size','6.5');
+    t.setAttribute('fill',LAYERS[lk].color); t.setAttribute('opacity','0.7');
+    t.setAttribute('font-family',"'Courier New',monospace");
+    t.textContent = LAYERS[lk].short;
+    svg.appendChild(t);
+  });
+
+  // Year axis
+  [1980,1985,1990,1995,2000,2005,2010,2015,2020,2024].forEach(y => {
+    const t = document.createElementNS('http://www.w3.org/2000/svg','text');
+    t.setAttribute('x',yrX(y)); t.setAttribute('y','115');
+    t.setAttribute('text-anchor','middle'); t.setAttribute('font-size','7');
+    t.setAttribute('fill','#2e2410'); t.setAttribute('id','tl-yr-'+y);
+    t.setAttribute('font-family',"'Courier New',monospace");
+    t.textContent = y;
+    svg.appendChild(t);
+  });
+
+  // Event dots
+  allEvents.forEach((ev, i) => {
+    const x = yrX(ev.year);
+    const y = layerRowY[ev.layer] + 4;
+    const c = LAYERS[ev.layer].color;
+    const g = document.createElementNS('http://www.w3.org/2000/svg','g');
+    g.style.cursor = 'pointer';
+    g.setAttribute('id',`dot-g-${i}`);
+
+    let dotEl;
+    if (ev.origin) {
+      // Diamond shape for origin event
+      dotEl = document.createElementNS('http://www.w3.org/2000/svg','polygon');
+      const s = 6;
+      dotEl.setAttribute('points',`${x},${y-s} ${x+s},${y} ${x},${y+s} ${x-s},${y}`);
+      dotEl.setAttribute('fill','#161210'); dotEl.setAttribute('stroke','#c04040');
+      dotEl.setAttribute('stroke-width','1.5'); dotEl.setAttribute('opacity','0.7');
+    } else {
+      dotEl = document.createElementNS('http://www.w3.org/2000/svg','circle');
+      dotEl.setAttribute('cx',x); dotEl.setAttribute('cy',y); dotEl.setAttribute('r','4.5');
+      dotEl.setAttribute('fill','#161210'); dotEl.setAttribute('stroke',c);
+      dotEl.setAttribute('stroke-width','0.8'); dotEl.setAttribute('opacity','0.35');
+    }
+    dotEl.setAttribute('id',`dot-${i}`);
+    dotEl.style.transition = 'all 0.2s';
+    const circle = dotEl; // keep reference name for hover handlers
+    g.appendChild(dotEl);
+
+    // Glow ring (bloom on activation)
+    const ring = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    ring.setAttribute('cx', x); ring.setAttribute('cy', y); ring.setAttribute('r', '6');
+    ring.setAttribute('fill', 'none');
+    ring.setAttribute('stroke', ev.origin ? '#c04040' : c);
+    ring.setAttribute('stroke-width', '1.5');
+    ring.setAttribute('opacity', '0');
+    ring.setAttribute('id', `ring-${i}`);
+    g.insertBefore(ring, dotEl);
+
+    const title = document.createElementNS('http://www.w3.org/2000/svg','title');
+    title.textContent = `${ev.year} · ${ev.title}`;
+    g.appendChild(title);
+
+    g.addEventListener('mouseenter', () => {
+      hoveredEvent = ev;
+      showEventCard(ev);
+      if (ev.origin) dotEl.setAttribute('points',`${x},${y-9} ${x+9},${y} ${x},${y+9} ${x-9},${y}`);
+      else circle.setAttribute('r','6.5');
+    });
+    g.addEventListener('mouseleave', () => {
+      hoveredEvent = null;
+      showEventCard(getCurrentEvent());
+      if (ev.origin) dotEl.setAttribute('points',`${x},${y-6} ${x+6},${y} ${x},${y+6} ${x-6},${y}`);
+      else circle.setAttribute('r','4.5');
+    });
+    g.addEventListener('click', () => {
+      stopPlay();
+      currentYear = ev.year;
+      document.getElementById('year-slider').value = ev.year;
+      animateToYear(ev.year);
+    });
+    svg.appendChild(g);
+  });
+}
+
+// ── EVENT GRID ────────────────────────────────────────────────────────────────
+
+function buildEventGrid() {
+  const sec = document.getElementById('event-grid-section');
+  layerOrder.forEach(lk => {
+    const layerEvs = allEvents.filter(e => e.layer === lk);
+    const c = LAYERS[lk].color;
+    const wrap = document.createElement('div');
+    wrap.className = 'event-grid-layer';
+    wrap.innerHTML = `<div class="event-grid-header" style="color:${c};border-bottom:1px solid ${c}33;">${LAYERS[lk].label}</div>`;
+    const grid = document.createElement('div');
+    grid.className = 'event-grid';
+    layerEvs.forEach((ev,i) => {
+      const item = document.createElement('div');
+      item.className = 'event-grid-item';
+      item.setAttribute('id',`grid-${lk}-${i}`);
+      item.style.opacity = '0.2';
+      const dc = ev.origin ? '#c04040' : c;
+      const dotCls = ev.origin ? 'event-grid-dot origin' : 'event-grid-dot';
+      const titleCls = ev.origin ? 'event-grid-title origin-title' : 'event-grid-title';
+      item.innerHTML = `<div class="${dotCls}" style="background:${dc}"></div><div><span class="event-grid-year" style="color:${dc}">${ev.year} </span><span class="${titleCls}">${ev.title}</span></div>`;
+      item.addEventListener('click', () => {
+        stopPlay(); currentYear = ev.year;
+        document.getElementById('year-slider').value = ev.year;
+        animateToYear(ev.year);
+      });
+      item.addEventListener('mouseenter', () => { hoveredEvent = ev; showEventCard(ev); });
+      item.addEventListener('mouseleave', () => { hoveredEvent = null; showEventCard(getCurrentEvent()); });
+      grid.appendChild(item);
+    });
+    wrap.appendChild(grid);
+    sec.appendChild(wrap);
+  });
+}
+
+// ── GAUGE UPDATE ─────────────────────────────────────────────────────────────
+
+function getCurrentEvent() {
+  return [...allEvents].reverse().find(e => e.year <= currentYear) || allEvents[0];
+}
+
+function showEventCard(ev) {
+  if (!ev) return;
+  const c = ev.origin ? '#c04040' : LAYERS[ev.layer].color;
+  const card = document.getElementById('event-card');
+  card.style.borderLeftColor = c;
+  document.getElementById('event-layer-label').textContent = ev.origin ? 'ORIGIN EVENT — ALL LAYERS — UNREVERSED' : LAYERS[ev.layer].label;
+  document.getElementById('event-layer-label').style.color = c;
+  document.getElementById('event-impact').textContent = ev.origin ? `IMPACT ${ev.impact} · MULTI-EVENT · NO COMPENSATING RESPONSE` : `IMPACT ${ev.impact}`;
+  document.getElementById('event-title').innerHTML = `${ev.year} — ${ev.title}`;
+  document.getElementById('event-detail').textContent = ev.detail;
+}
+
+function animateToYear(year) {
+  const targetP = getCompositePressure(year);
+  const startP = animPressure;
+  const start = performance.now();
+  const dur = 700;
+  function step(now) {
+    const t = Math.min((now - start) / dur, 1);
+    const e = t < 0.5 ? 2*t*t : -1+(4-2*t)*t;
+    animPressure = startP + (targetP - startP) * e;
+    renderGauge(year, animPressure);
+    if (t < 1) animFrame = requestAnimationFrame(step);
+    else { animPressure = targetP; prevPressure = targetP; }
+  }
+  cancelAnimationFrame(animFrame);
+  animFrame = requestAnimationFrame(step);
+}
+
+function renderGauge(year, p) {
+  const color = zoneColor(p);
+  const angle = pToAngle(p);
+  const respP = getResponse(year);
+  const respAngle = pToAngle(Math.min(respP, 0.6));
+  const gap = Math.max(0, p - respP);
+
+  // Active arc
+  const arcEl = document.getElementById('arc-active');
+  arcEl.setAttribute('d', svgArc(CX,CY,R-4,-225,angle));
+  arcEl.setAttribute('stroke', color);
+
+  // Pressure needle
+  const tip = polar(CX,CY,R-18,angle);
+  const b1  = polar(CX,CY,16,angle+90);
+  const b2  = polar(CX,CY,16,angle-90);
+  const tail = polar(CX,CY,30,angle+180);
+  document.getElementById('needle-poly').setAttribute('points',`${tip.x},${tip.y} ${b1.x},${b1.y} ${b2.x},${b2.y}`);
+  document.getElementById('needle-poly').setAttribute('fill',color);
+  document.getElementById('needle-poly').setAttribute('stroke','#0a0806');
+  document.getElementById('needle-poly').setAttribute('stroke-width','1');
+  document.getElementById('needle-tail').setAttribute('x1',CX); document.getElementById('needle-tail').setAttribute('y1',CY);
+  document.getElementById('needle-tail').setAttribute('x2',tail.x); document.getElementById('needle-tail').setAttribute('y2',tail.y);
+  document.getElementById('needle-tail').setAttribute('stroke',color);
+  const gn = document.getElementById('needle-glow');
+  gn.setAttribute('x1',CX); gn.setAttribute('y1',CY); gn.setAttribute('x2',tip.x); gn.setAttribute('y2',tip.y);
+  gn.setAttribute('stroke',color);
+
+  // Response needle
+  const rTip = polar(CX,CY,R-38,respAngle);
+  const rTail = polar(CX,CY,28,respAngle+180);
+  const nr = document.getElementById('needle-response');
+  nr.setAttribute('x1',rTail.x); nr.setAttribute('y1',rTail.y);
+  nr.setAttribute('x2',rTip.x); nr.setAttribute('y2',rTip.y);
+
+  // Inner layer arcs
+  const ia = document.getElementById('inner-arcs');
+  ia.innerHTML = '';
+  ['drafting','vocational','field'].forEach((lk,li) => {
+    const lp = getLayerPressure(lk, year) / 100;
+    const innerR = 44 - li*12;
+    const c = LAYERS[lk].color;
+    const bg = document.createElementNS('http://www.w3.org/2000/svg','path');
+    bg.setAttribute('d', svgArc(CX,CY,innerR,-225,-225+270*lp));
+    bg.setAttribute('fill','none'); bg.setAttribute('stroke',c);
+    bg.setAttribute('stroke-width','5'); bg.setAttribute('opacity','0.3');
+    ia.appendChild(bg);
+    const fg = document.createElementNS('http://www.w3.org/2000/svg','path');
+    fg.setAttribute('d', svgArc(CX,CY,innerR,-225,-225+270*lp));
+    fg.setAttribute('fill','none'); fg.setAttribute('stroke',c);
+    fg.setAttribute('stroke-width','1'); fg.setAttribute('opacity','0.8');
+    ia.appendChild(fg);
+  });
+
+  // Text readouts
+  document.getElementById('year-text').textContent = year;
+  document.getElementById('pressure-text').textContent = `PRESSURE ${Math.round(p*100)}%`;
+  document.getElementById('pressure-text').setAttribute('fill', color);
+  const prod = productivityData.find(d => d.year === year) || productivityData[productivityData.length-1];
+  document.getElementById('prod-text').textContent = `Productivity Index: ${prod.value.toFixed(1)}`;
+
+  // Legend line
+  document.getElementById('legend-pressure-line').style.background = color;
+
+  // Deficit
+  const dv = document.getElementById('deficit-value');
+  dv.textContent = Math.round(gap*100) + 'pts';
+  dv.style.color = gap > 0.3 ? '#c0392b' : '#d4a017';
+
+  // Layer bars
+  document.getElementById('layer-panel-title').textContent = `Layer Pressure Breakdown — ${year}`;
+  Object.keys(LAYERS).forEach(lk => {
+    const lp = Math.round(getLayerPressure(lk, year));
+    document.getElementById(`pct-${lk}`).textContent = lp + '%';
+    document.getElementById(`bar-${lk}`).style.width = lp + '%';
+  });
+
+  // Responses
+  RESPONSES.forEach(r => {
+    const el = document.getElementById('resp-'+r.year);
+    if (el) el.style.opacity = r.year <= year ? '1' : '0.2';
+  });
+}
+
+function updateGauge(year, immediate) {
+  if (immediate) {
+    animPressure = getCompositePressure(year);
+    prevPressure = animPressure;
+    renderGauge(year, animPressure);
+    updateTimeline(year);
+    if (!hoveredEvent) showEventCard(getCurrentEvent());
+  } else {
+    animateToYear(year);
+    updateTimeline(year);
+    if (!hoveredEvent) showEventCard(getCurrentEvent());
+  }
+}
+
+function updateTimeline(year) {
+  const yl = document.getElementById('tl-yearline');
+  yl.setAttribute('x1', yrX(year)); yl.setAttribute('x2', yrX(year));
+  yl.setAttribute('stroke', zoneColor(animPressure));
+
+  const eyl = document.getElementById('era-yearline');
+  eyl.setAttribute('x1', yrX(year)); eyl.setAttribute('x2', yrX(year));
+
+  [1980,1985,1990,1995,2000,2005,2010,2015,2020,2024].forEach(y => {
+    const t = document.getElementById('tl-yr-'+y);
+    if (t) t.setAttribute('fill', y===year ? '#e8d0a8' : '#2e2410');
+  });
+
+  allEvents.forEach((ev,i) => {
+    const dot = document.getElementById(`dot-${i}`);
+    const ring = document.getElementById(`ring-${i}`);
+    if (!dot) return;
+    const active = ev.year <= year;
+    const col = ev.origin ? '#c04040' : LAYERS[ev.layer].color;
+    const justLit = ev.year === year;
+
+    if (active) {
+      dot.setAttribute('fill', col);
+      dot.setAttribute('stroke', col);
+      dot.setAttribute('stroke-width', ev.origin ? '2' : '1.5');
+      dot.setAttribute('opacity', '1');
+
+      if (justLit && ring) {
+        // Flash the dot
+        dot.classList.remove('dot-just-lit');
+        void dot.offsetWidth; // force reflow to restart animation
+        dot.classList.add('dot-just-lit');
+
+        // Bloom ring
+        ring.setAttribute('stroke', col);
+        ring.setAttribute('opacity', '0.9');
+        ring.classList.remove('ring-bloom', 'ring-pulse');
+        void ring.offsetWidth;
+        ring.classList.add('ring-bloom');
+        ring.addEventListener('animationend', () => {
+          ring.classList.remove('ring-bloom');
+          ring.setAttribute('opacity', '0');
+        }, {once: true});
+      } else if (ring) {
+        // Settled — soft pulse ring
+        ring.setAttribute('stroke', col);
+        if (!ring.classList.contains('ring-pulse')) {
+          ring.classList.remove('ring-bloom');
+          ring.setAttribute('opacity', '0.35');
+          ring.setAttribute('r', '6');
+          ring.classList.add('ring-pulse');
+        }
+      }
+    } else {
+      dot.setAttribute('fill', '#161210');
+      dot.setAttribute('stroke', ev.origin ? '#c04040' : LAYERS[ev.layer].color);
+      dot.setAttribute('stroke-width', '0.8');
+      dot.setAttribute('opacity', '0.35');
+      dot.classList.remove('dot-just-lit');
+      if (ring) {
+        ring.classList.remove('ring-bloom', 'ring-pulse');
+        ring.setAttribute('opacity', '0');
+      }
+    }
+  });
+
+  // Event grid
+  layerOrder.forEach(lk => {
+    const layerEvs = allEvents.filter(e => e.layer === lk);
+    layerEvs.forEach((ev,i) => {
+      const item = document.getElementById(`grid-${lk}-${i}`);
+      if (item) item.style.opacity = ev.year <= year ? '1' : '0.2';
+    });
+  });
+}
+
+// ── CONTROLS ─────────────────────────────────────────────────────────────────
+
+function onSlider(val) {
+  stopPlay();
+  currentYear = parseInt(val);
+  updateGauge(currentYear, false);
+}
+
+function togglePlay() {
+  if (playing) {
+    stopPlay();
+  } else {
+    if (currentYear >= 2024) { currentYear = 1980; document.getElementById('year-slider').value = 1980; updateGauge(1980, true); }
+    playing = true;
+    document.getElementById('btn-play').textContent = '■ PAUSE';
+    document.getElementById('btn-play').classList.add('active');
+    playInterval = setInterval(() => {
+      if (currentYear >= 2024) { stopPlay(); return; }
+      currentYear++;
+      document.getElementById('year-slider').value = currentYear;
+      updateGauge(currentYear, false);
+    }, 180);
+  }
+}
+
+function stopPlay() {
+  playing = false;
+  clearInterval(playInterval);
+  document.getElementById('btn-play').textContent = '▶ PLAY';
+  document.getElementById('btn-play').classList.remove('active');
+}
+
+function resetGauge() {
+  stopPlay();
+  currentYear = 1980;
+  document.getElementById('year-slider').value = 1980;
+  updateGauge(1980, true);
+}
+</script>
+</body>
 </html>

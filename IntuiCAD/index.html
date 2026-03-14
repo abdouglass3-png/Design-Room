@@ -1,0 +1,365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Structural Component Manager</title>
+<style type="text/css">
+<!--
+/* v1.0 | 20080212 */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+body {
+	font-family: "Calibri", Trebuchet MS, Helvetica, Arial, sans-serif;
+	background-color:#606060;
+	background-image:url(../backgroundGradient.gif);
+	background-position:center;
+	background-repeat:repeat-y;
+	text-align:center;
+}
+#container {
+	background-color: #FFF;
+	width: 770px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: left;
+}
+#container #branding {
+	background-color: #999;
+	padding: 15px;
+	border-top-width: 15px;
+	border-top-style: solid;
+	border-top-color: #000;
+	border-bottom-width:5px;
+	border-bottom-style:solid;
+	border-bottom-color:#fff;
+}
+#container #mainNav {
+	background-color: #000;
+	font-size: 0.8em;
+	height:2em;
+	border-bottom-width:5px;
+	border-bottom-style:solid;
+	border-bottom-color:#fff;
+}
+#container #mainContent {
+	background-color: #fff;
+	padding-top: 15px;
+	padding-right: 15px;
+	padding-bottom: 20px;
+	padding-left: 15px;
+}
+#container #sidebar1 {
+	background-color: #606060;
+	font-size: 0.8em;
+	text-align: left;
+	width: 140px;
+	border-bottom:solid;
+	border-bottom-color:#000;
+	border-bottom-width:15px;
+	margin-bottom:20px;
+	margin-left: 15px;
+	overflow: hidden;
+	float: right;
+}
+#container #siteInfo {
+	background-color: #000;
+	color:#ccc;
+	font-size: .7em;
+	height: 2em;
+	text-align: center;
+}
+h1 {
+	font-size: 1.5em;
+	line-height: 1.5em;
+	text-align: left;
+	font-weight: normal;
+	color: #606060;
+	padding-bottom: 0.3em;
+}
+h2 {
+	font-size: 1.0em;
+	line-height: 1.5em;
+	text-align: left;
+	font-weight: bold;
+	color: #F00;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+}
+h3 {
+	font-size: 0.9em;
+	line-height: 1.5em;
+	color: #000000;
+	font-weight: bold;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+}
+ul li a:link {
+	font-size: 0.8em;
+	line-height: 2.0em;
+	color: #F00;
+	text-decoration: none;
+	text-align: left;
+	display: inline;
+	list-style-type: none;
+}
+ul li a:visited {
+	text-decoration:none;
+	color: #C03;
+	}
+ul li a:hover, a:focus, a:active {
+	color: #FFF;
+}
+#container #mainNav ul li {
+	line-height: 2em;
+	display:inline;
+	padding: 0 15px 0 15px;
+	}
+#container #sidebar1 ul li {
+	line-height: 1.5em;
+	display:block;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #000;
+	padding-top: 0.1em;
+	padding-right: 15px;
+	padding-bottom:0.1em;
+	padding-left: 15px;
+}
+#container #mainContent p, a:link, ul li a:link {
+	font-size:0.9em;
+	line-height: 1.5em;
+}
+#container #mainContent a:hover, a:focus, a:active {
+	color: #F00;
+}
+#container #mainContent ul li {
+	height: 1.5em;
+	list-style-type: none;
+	color: #666;
+	text-indent: 0;
+}
+#container #mainContent ol li {
+	list-style-position: outside;
+	list-style-type: square;
+	color: #666;
+	text-indent: 0;
+	margin-left:20px;
+	margin-bottom: 0.3em;
+}
+#container #siteInfo p{
+	background-color:#000;
+	text-align: center;
+	height: 2.0em;
+}
+#container #siteInfo ul li {
+	line-height: 2em;
+	display:inline;
+	padding: 0 5px 0 5px;
+	}
+blockquote {
+	font-size: 1.1em;
+	font-style: italic;
+	line-height: 1.7em;
+	font-weight: normal;
+	color: #CCC;
+	padding-top: 0.7em;
+	padding-right: 15px;
+	padding-bottom: 0;
+	padding-left: 15px;
+	text-align: center;
+}
+.textLink {
+	color: #000;
+	text-decoration: underline;
+	font-size: 1.0em;
+	padding: 0px;
+	margin: 0;
+	display: inline;
+}
+.emphasis {
+	font-style: italic;
+	color: #000;
+}
+.centerThis {
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+}
+.fltlft {
+	margin: 0px;
+	padding: 0px;
+	float: left;
+}
+.clearfloat {
+	clear:both;
+	margin:0;
+	padding:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+img { max-width: 100%; height: auto; }
+
+@media screen and (max-width: 800px) {
+  #container { width: 100%; }
+}
+
+@media screen and (max-width: 600px) {
+  #container #branding img { width: 100%; }
+  #container #sidebar1 {
+    float: none;
+    width: 100% !important;
+    margin-left: 0;
+    margin-right: 0;
+    box-sizing: border-box;
+  }
+  #container #mainContent {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+  #container #mainNav {
+    height: auto !important;
+    padding: 4px 0;
+  }
+  #container #mainNav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  #container #mainNav ul li {
+    display: inline-block !important;
+    padding: 4px 8px !important;
+    line-height: 1.8em !important;
+  }
+  #container #siteInfo {
+    height: auto !important;
+    padding: 8px 0;
+  }
+  #container #siteInfo ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  #container #siteInfo ul li {
+    display: inline-block !important;
+    padding: 2px 4px !important;
+    line-height: 2em !important;
+  }
+}
+-->
+</style>
+<script type="text/javascript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+//-->
+</script>
+</head>
+
+<body onload="MM_preloadImages('SCM-1.JPG')">
+<div id="container" align="center">
+<div id="branding" align="left">
+  <p align="left"><em>For engineering drawing, your solution is...</em></p>
+  <p align="center"><img src="intuiCADlogo.jpg" alt="intuiCAD logo" name="logoGraphic" width="620" height="132" id="logoGraphic" /></p>
+  <p align="right"><em>...because it's definitely about time!</em></p>
+</div>
+<!-- end branding div -->
+<div id="mainNav" align="center">
+<ul>
+<li><a href="../../index.html">HOME</a></li>
+<li><a href="../customizations.html">CUSTOMIZATIONS</a></li>
+<li><a href="../designModules.html">DESIGN MODULES</a></li>
+<li><a href="../aboutUs.html">ABOUT US</a></li>
+<li><a href="../privacyPolicy.html">PRIVACY POLICY</a></li>
+<li><a href="../contactUs.html">CONTACT US</a></li>
+</ul>
+</div>
+<!-- end mainNav div -->
+<div id="sidebar1">
+  <p><img src="oneRedBlock.gif" alt="" class="centerThis" width="140" height="35" /><img src="SCM-1.JPG" width="140" height="210" alt="Nike Truss - GBIA Concourse" /></p>
+  <p>&nbsp; </p>
+  <ul>
+    <li><a href="SCMDSetup.html">DRAWING SETUP</a></li>
+    <li><a href="SCMSymbols.html">SYMBOLS</a></li>
+    <li><a href="SCMSteel.html">STEEL</a></li>
+    <li><a href="SCMConcrete.html">CONCRETE</a></li>
+    <li><a href="SCMMasonry.html">MASONRY</a></li>
+    <li><a href="SCMWood.html">WOOD</a></li>
+    <li><a href="SCMSLH.html">S/L/H</a></li>
+    <li><a href="SCMHatching.html">HATCHING</a></li>
+  </ul>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p><img src="SCM-2.JPG" alt="GBIA Concourse" width="140" height="210" /><img src="oneRedBlock.gif" alt="" class="centerThis" width="140" height="35" /></p>
+</div>
+<!--end sidebar1 div-->
+<div id="mainContent">
+<h1>Structural Component Manager</h1>
+<p>IntuiCAD SCM benefits from a most extensive research and &ldquo;testing&rdquo; period . . . over 15 years!  Many of the tools in our Structural Component Manager have participated in some grand projects indeed.  From the <a href="http://pressroom.ups.com/Video/ci.UPS+Worldport+b-roll.Video" class="textLink" target="_blank">UPS Worldport</a> in Louisville, KY and <a href="http://www.guangzhouairportonline.com/" class="textLink" target="_blank">Guangzhou Baiyun International Airport</a> in China, to manufacturing facilities, power plants, schools and municipal buildings, they have been refined and redeployed without relief.</p>
+<p>The three BIG reasons (and lots of little ones) you need IntuiCAD SCM.</p>
+<h2>Product Management</h2>
+<ol>
+<li><p>IntuiCAD SCM allows a company to spread a very high level of uniformity throughout the office. Centralized access and singular sourcing of resources ensures that consistency is almost unavoidable.</p></li>
+<li><p>IntuiCAD SCM does not require regular maintenance or management, leaving more people more time to produce the company's real product.</p></li>
+<li><p>IntuiCAD SCM is predictable in both stability and function. The core programming is handled with AutoLisp, a longtime favorite of CAD users. Our tools function retroactively through AutoCad 2005.</p></li>
+<li><p>IntuiCAD SCM has been designed and field tested with input from some of the largest (and smallest) consultants in the country in actual project conditions and has a stellar record of increasing profitability and performance.</p></li>
+<li><p>IntuiCAD SCM can be customized to provide a template for managing specialized client CAD requirements.</p></li>
+</ol>
+<h2>Financial</h2>
+<ol>
+<li><p>IntuiCAD SCM will measurably increase user productivity. Mundane tasks (and discussion) are prime targets of SCM, leaving the time to be more productively used.</p></li>
+<li><p>IntuiCAD SCM can drastically decrease or often eliminate new employee CAD training. Since all customizations are designed outside of AutoCad, the employee is free to use the core CAD settings with which they may be familiar.</p></li>
+<li><p>IntuiCAD SCM can reduce costs associated with CAD administration by consolidating company resources. No more 4 inch thick binders of typical details and CAD manuals.</p></li>
+<li><p>IntuiCAD SCM works for the company even after the drawing is created. By incorporating editing features into the block design, many items high on the &ldquo;mark-up&rdquo; lists are reduced to a couple of clicks.</p></li>
+</ol>
+<h2>Flexibility</h2>
+<ol>
+<li><p>IntuiCAD SCM blocks are intuitively functional and adapted to users of all experience.</p></li>
+<li><p>IntuiCAD SCM can be adapted to ANY company standard.</p></li>
+<li><p>IntuiCAD SCM can be customized to handle specific clients.</p></li>
+<li><p>IntuiCAD SCM comes with three synchronized tool formats. No matter one's preference, each user has equal access to the same centralized tools.</p></li>
+<li><p>IntuiCAD SCM can be linked between departments without conflict.</p></li>
+</ol>
+<p style="margin-top:20px;font-size:0.85em;color:#606060;"><a href="../../Design_Intent.pdf" target="_blank" class="textLink">Design Intent as a Systemic Capability at Scale</a></p>
+</div>
+<!-- end mainContent div -->
+<div align="center"><img src="3redBlocks.gif" alt="" width="265" height="35" /></div>
+<div id="siteInfo" align="center">
+<ul>
+<li><a href="../../index.html">HOME</a></li>
+<li>|</li>
+<li><a href="../customizations.html">CUSTOMIZATIONS</a></li>
+<li>|</li>
+<li><a href="../designModules.html">DESIGN MODULES</a></li>
+<li>|</li>
+<li><a href="../aboutUs.html">ABOUT US</a></li>
+<li>|</li>
+<li><a href="../privacyPolicy.html">PRIVACY POLICY</a></li>
+<li>|</li>
+<li><a href="../contactUs.html">CONTACT US</a></li>
+</ul>
+<p>&copy;Copyright 2009 IntuiCAD, LLC. All rights reserved.</p>
+</div>
+<!-- end siteInfo div -->
+</div>
+<!-- end container div -->
+</body>
+</html>

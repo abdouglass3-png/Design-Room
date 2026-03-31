@@ -274,10 +274,11 @@ input[type=range] { flex: 1; cursor: pointer; }
       The medium enforced that. The medium changed.<br>
       <span class="reminder">Documentation grew. Understanding didn't travel with it.</span><br>
       <span style="color:#9a6a40;font-style:italic;margin-top:3px;display:block;">The system did not fail. It started charging.</span>
+      <span style="color:#c8a060;font-style:normal;font-weight:bold;margin-top:8px;display:block;letter-spacing:0.08em;">Drafting is the language of elegant frugality.</span>
     </div>
 
     <div class="deficit-box">
-      <div class="deficit-label">TRANSLATION RISK</div>
+      <div class="deficit-label">COHERENCE DEFICIT</div>
       <div class="deficit-value" id="deficit-value">0pts</div>
       <div class="deficit-sub">gap between needles</div>
     </div>
@@ -328,11 +329,11 @@ input[type=range] { flex: 1; cursor: pointer; }
 <div class="controls-row">
   <button class="btn btn-play" id="btn-play" onclick="togglePlay()">▶ PLAY</button>
   <div style="flex:1;display:flex;flex-direction:column;gap:2px;">
-    <input type="range" id="year-slider" min="1980" max="2024" value="1980" oninput="onSlider(this.value)" style="width:100%;">
+    <input type="range" id="year-slider" min="1980" max="2025" value="1980" oninput="onSlider(this.value)" style="width:100%;">
     <div class="slider-labels">
       <span>1981 — Origin Event</span>
       <span>Drag to advance through structural history</span>
-      <span>2024 — Total Inversion</span>
+      <span>2025 — Self Awareness</span>
     </div>
   </div>
   <button class="btn btn-reset" onclick="resetGauge()">↺ RESET</button>
@@ -376,7 +377,7 @@ input[type=range] { flex: 1; cursor: pointer; }
   OBSERVATIONAL INSTRUMENT · designintentlinguist.com · <a href="https://www.reddit.com/r/TheFlexWindow" target="_blank" style="color:inherit;text-decoration:none;outline:none;">r/TheFlexWindow</a><br>
   BASIS: BLS CONSTRUCTION PRODUCTIVITY INDEX (1987=100) · WEIGHTED LAYER PRESSURE MODEL<br>
   <span style="color:#6a5040;">ORIGIN EVENT: HYATT REGENCY 1981 · FIRST CURRICULUM EXTRACTION · ZERO COMPENSATING RESPONSES · 44 YEARS</span><br>
-  <span style="color:#5a4030;">EVERY RFI · EVERY CHANGE ORDER · EVERY CONSERVATIVE DECISION THAT NEVER GOT PRESSURE-TESTED — THIS IS THE COST OF SPEAKING DIFFERENT LANGUAGES</span>
+  <span style="color:#5a4030;">EVERY RFI · EVERY CHANGE ORDER · EVERY CONSERVATIVE DECISION THAT NEVER GOT PRESSURE-TESTED — THIS IS THE COST OF SPEAKING</span>
 </div>
 
 <script>
@@ -398,6 +399,7 @@ const productivityData = [
   {year:2016,value:93.7},{year:2017,value:93.4},{year:2018,value:93.0},
   {year:2019,value:92.8},{year:2020,value:92.5},{year:2021,value:92.2},
   {year:2022,value:91.8},{year:2023,value:91.5},{year:2024,value:91.2},
+  {year:2025,value:90.8}, // TBD — trajectory continues declining; rate under review
 ];
 
 const LAYERS = {
@@ -423,7 +425,7 @@ const ERAS = [
   {label:'EQUILIBRIUM',       start:1998, end:2005, color:'#d4a017'},
   {label:'GREAT DIVERGENCE',  start:2005, end:2012, color:'#c87830'},
   {label:'COASTING ERA',      start:2012, end:2021, color:'#c0392b'},
-  {label:'MANAGERIAL HEGEMONY',start:2021,end:2024, color:'#7a1010'},
+  {label:'MANAGERIAL HEGEMONY',start:2021,end:2025, color:'#7a1010'},
 ];
 
 const allEvents = [
@@ -496,6 +498,7 @@ const allEvents = [
   {year:2018,layer:'data',impact:88,title:'IBC Nears 1,000 Pages',detail:'Complexity threshold. Admin load chokes production. The regulatory surface now requires its own specialists.'},
   {year:2021,layer:'data',impact:83,title:'Managerial Hegemony — 1.2M PMP Holders',detail:'The engineer — linguistically unformed because the drafter became a cleric — now manages the review process that was the last transmission environment, certified by PMP. The credential does not fill the gap left by the drafter. It formalizes the gap as a qualification. 1.2 million people certified to manage a transmission event they were never trained to understand.'},
   {year:2024,layer:'data',impact:96,title:'Total Inversion — 550k Managers / 160k Drafters',detail:'Productivity at 91.2. Change orders at 10.5%. ConTech VC at $10.2B. Peak Coasting. The arc completes.'},
+  {year:2025,layer:'data',impact:94,title:'Self Awareness',detail:'The argument arrived complete into the greatest building event in history. The room reached for advantage before it found the language to receive it. The work will not wait.'},
 ].sort((a,b) => a.year !== b.year ? a.year - b.year : a.layer.localeCompare(b.layer));
 
 // ── PRESSURE MODEL ───────────────────────────────────────────────────────────
@@ -557,7 +560,7 @@ let hoveredEvent = null;
 
 const CX = 197, CY = 197, R = 138;
 const TLW = 800, TLPAD = 52;
-const yrX = y => TLPAD + ((y-1980)/44)*(TLW-TLPAD*2);
+const yrX = y => TLPAD + ((y-1980)/45)*(TLW-TLPAD*2);
 
 const layerOrder = ['drafting','vocational','field','data'];
 const layerRowY = {drafting:18, vocational:38, field:58, data:78};
@@ -715,7 +718,7 @@ function buildTimeline() {
 
   // Productivity curve
   const poly = document.createElementNS('http://www.w3.org/2000/svg','polygon');
-  poly.setAttribute('points', prodPts + ` ${yrX(2024)},38 ${yrX(1980)},38`);
+  poly.setAttribute('points', prodPts + ` ${yrX(2025)},38 ${yrX(1980)},38`);
   poly.setAttribute('fill','#1a1408'); poly.setAttribute('opacity','0.7');
   svg.appendChild(poly);
   const pline = document.createElementNS('http://www.w3.org/2000/svg','polyline');
@@ -747,7 +750,7 @@ function buildTimeline() {
   });
 
   // Year axis
-  [1980,1985,1990,1995,2000,2005,2010,2015,2020,2024].forEach(y => {
+  [1980,1985,1990,1995,2000,2005,2010,2015,2020,2024,2025].forEach(y => {
     const t = document.createElementNS('http://www.w3.org/2000/svg','text');
     t.setAttribute('x',yrX(y)); t.setAttribute('y','115');
     t.setAttribute('text-anchor','middle'); t.setAttribute('font-size','7');
@@ -997,7 +1000,7 @@ function updateTimeline(year) {
   const eyl = document.getElementById('era-yearline');
   eyl.setAttribute('x1', yrX(year)); eyl.setAttribute('x2', yrX(year));
 
-  [1980,1985,1990,1995,2000,2005,2010,2015,2020,2024].forEach(y => {
+  [1980,1985,1990,1995,2000,2005,2010,2015,2020,2024,2025].forEach(y => {
     const t = document.getElementById('tl-yr-'+y);
     if (t) t.setAttribute('fill', y===year ? '#e8d0a8' : '#2e2410');
   });
@@ -1077,12 +1080,12 @@ function togglePlay() {
   if (playing) {
     stopPlay();
   } else {
-    if (currentYear >= 2024) { currentYear = 1980; document.getElementById('year-slider').value = 1980; updateGauge(1980, true); }
+    if (currentYear >= 2025) { currentYear = 1980; document.getElementById('year-slider').value = 1980; updateGauge(1980, true); }
     playing = true;
     document.getElementById('btn-play').textContent = '■ PAUSE';
     document.getElementById('btn-play').classList.add('active');
     playInterval = setInterval(() => {
-      if (currentYear >= 2024) { stopPlay(); return; }
+      if (currentYear >= 2025) { stopPlay(); return; }
       currentYear++;
       document.getElementById('year-slider').value = currentYear;
       updateGauge(currentYear, false);

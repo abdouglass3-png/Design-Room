@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>IntuiCAD</title>
+<style type="text/css">
+<!--
+/* v1.0 | 20080212 */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+body {
+	font-family: "Calibri", Trebuchet MS, Helvetica, Arial, sans-serif;
+	background-color:#606060;
+	background-image:url(backgroundGradient.gif);
+	background-position:center;
+	background-repeat:repeat-y;
+	text-align:center;
+}
+#container {
+	background-color: #fff;
+	width: 770px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: left;
+	position:relative;
+}
+a:visited {
+	text-decoration:none;
+	color: #f00;
+	}
+a:hover, a:focus, a:active {
+	color: #c7c5c5;
+}
+h1 {
+	font-size: 1.5em;
+	line-height: 1.5em;
+	text-align: left;
+	font-weight: normal;
+	color: #606060;
+	padding-bottom: 0.3em;
+}
+h2 {
+	font-size: 1.0em;
+	line-height: 1.5em;
+	text-align: left;
+	font-weight: bold;
+	color: #F00;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+}
+h3 {
+	font-size: 0.9em;
+	line-height: 1.5em;
+	color: #000000;
+	font-weight: bold;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+}
+#container #branding {
+	background-color: #999;
+	padding: 15px;
+	border-top-width: 15px;
+	border-top-style: solid;
+	border-top-color: #000;
+	border-bottom-width:5px;
+	border-bottom-style:solid;
+	border-bottom-color:#fff;
+}
+#container #mainNav {
+	font-size: 0.8em;
+	background-color: #000;
+	height:1.5em;
+	padding-top:6px;
+	padding-bottom:4px;
+	border-bottom-width:5px;
+	border-bottom-style:solid;
+	border-bottom-color:#fff;
+text-align:center;
+}
+#container #sidebar1 {
+	background-color: #606060;
+	text-align: center;
+	width: 265px;
+	border-bottom:solid;
+	border-bottom-color:#000;
+	border-bottom-width:15px;
+	margin-bottom:20px;
+	margin-left: 15px;
+	overflow: hidden;
+	float: right;
+}
+#siteInfo {
+	background-color: #000;
+	color:#ccc;
+text-align:center;
+}
+#mainNav li, a:link {
+	color: #F00;
+	text-decoration: none;
+	text-align: center;
+	display: inline;
+	padding: 5px 15px 5px 15px;
+}
+#container #siteInfo ul li, a:link {
+	display:inline;
+	font-size: .7em;
+	height: 2em;
+	text-align: center;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+	}
+#container #mainContent {
+	background-color: #FFF;
+	padding: 15px 15px 20px;
+	width: 475px;
+}
+#container #mainContent p, a:link {
+	font-size:0.9em;
+	line-height: 1.5em;
+}
+#container #mainContent a:link {
+	color: #000;
+	text-decoration: underline;
+	padding:2px;
+}
+#container #mainContent ul li {
+	height: 1.5em;
+	list-style-type: none;
+	color: #666;
+	text-indent: 0;
+}
+#container #mainContent ol li {
+	list-style-position: outside;
+	list-style-type: square;
+	color: #666;
+	text-indent: 1em;
+	margin-left:20px;
+	margin-bottom: 0.3em;
+}
+#container #mainContent a:hover, a:focus, a:active {
+	color: #F00;
+}
+#container #siteInfo p{
+	text-align: center;
+	color: #ccc;
+	font-size: .7em;
+	height: 2.0em;
+}
+#container #siteInfo a:hover, a:focus, a:active {
+	color: #c7c5c5;
+}
+blockquote {
+	font-size: 1.1em;
+	font-style: italic;
+	line-height: 1.7em;
+	font-weight: normal;
+	color: #CCC;
+	padding-top: 0.7em;
+	padding-right: 15px;
+	padding-bottom: 0;
+	padding-left: 15px;
+	text-align: center;
+}
+.textLink {
+	color: #000;
+	text-decoration: none;
+	font-size: 1.0em;
+
+	padding: 0px;
+	margin: 0;
+	display: inline;
+}
+.emphasis {
+	font-style: italic;
+	color: #000;
+}
+.centerThis {
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+}
+.fltlft {
+	margin: 0px;
+	padding: 0px;
+	float: left;
+}
+.clearfloat {
+    clear:both;
+	margin:0;
+	padding:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+#container #sidebar2 {
+	text-align:center;
+	width:264px;
+	border-left-width: 1px;
+	border-left-style: dotted;
+	border-left-color: #F00;
+	top: 700px;
+	left: 505px;
+	position: absolute;
+}
+#spacer {
+	text-align: center;
+	width: 770px;
+}
+#container #sidebar2 p{
+	color:#000;
+	font-size:0.7em;
+	line-height: 1.1em;
+	text-align: left;
+	padding: 15px;
+	width: 235px;
+}
+-->
+</style></head>
+
+
+<body>
+<div id="container" align="center">
+<div id="branding" align="left">
+<p align="left"><i>For engineering drawing, your solution is...</i></p>
+<p align="center"><img src="IntuiCAD/intuiCADlogo.jpg" alt="intuiCAD logo" name="logoGraphic" id="logoGraphic" width="566" height="130" /></p>
+<p align="right"><i>...because it's definitely about time!</i></p>
+</div>
+<!-- end branding div -->
+<div id="mainNav" align="center">
+<ul>
+<li><a href="index.html">HOME</a></li>
+<li><a href="IntuiCAD/customizations.html">CUSTOMIZATIONS</a></li>
+<li><a href="IntuiCAD/designModules.html">DESIGN MODULES</a></li>
+<li><a href="IntuiCAD/aboutUs.html">ABOUT US</a></li>
+<li><a href="IntuiCAD/privacyPolicy.html">PRIVACY POLICY</a></li>
+<li><a href="IntuiCAD/contactUs.html">CONTACT US</a></li>
+</ul>
+</div>
+<!-- end mainNav div -->
+<div id="sidebar1"><img src="IntuiCAD/oneRedBlock.gif" alt="&quot;&quot;" class="centerThis" width="140" height="35" /><img src="IntuiCAD/pittsburghAirport.jpg" alt="computerPhoto" vspace="10px" width="265" height="176" />
+<blockquote>
+<p>The most perfect efficiency <br />is work already performed. <br />That perfection is reduced directly <br />by access and alteration.</p>
+</blockquote>
+<img src="IntuiCAD/oneRedBlock.gif" alt="&quot;&quot;" class="centerThis" width="140" height="35" /></div>
+<div id="sidebar2"><a href="http://www.adda.org" target="_blank"><img src="IntuiCAD/addaLogoSmall.jpg" alt="adda logo" width="136" height="83" /></a>
+  <p>IntuiCAD SCM is considered a fundamental component to the design drafting profession by the American Design Drafting Association. IntuiCAD SCM and its related material is relevant to the delivery of the design drafting process.</p>
+  <p>... ADDA feels, it should be considered a key reference tool in furthering the knowledge, abilities, and skills of a properly trained designer or drafter in their pursuit of a professional career and job performance on a daily basis.</p>
+</div>
+<!--end sidebar1 div-->
+<div id="mainContent">
+<p>Our <span class="emphasis">drawing component managers</span> handle a variety  of tasks from project assignment through turnkey and archive.  While our product may be limited to AutoCad generated documents, our study was not and included administrative tasks like bidding, reports and quality control matters as well.  Our drawing component managers target the broadest definition of the phrase, including:</p>
+<p>&nbsp;</p>
+<ol>
+<li>Borders</li>
+<li>Drawing stamps and logos</li>
+<li>Blocks and typical details</li>
+<li>Layer and drawing conversions</li>
+<li>Dimensions</li>
+<li>As-builts and archives</li>
+</ol>
+<p>All of our component managers assume drawings will be used again and this "future use" is not only protected but enhanced at every opportunity.</p>
+<p>&nbsp;</p>
+<p>Our extensive studies of CAD systems have revealed very low levels of variance in the <span class="emphasis">final output</span> and <span class="emphasis">most common edits</span> areas of study.  While there were certainly differences of style and procedure, the intent and functionality aspects remained remarkably consistent. Based upon data from accumulated mark-ups, IntuiCAD addresses actual office practices under project conditions.  The mark-ups represent actual work performed, the more complete the set of marks, the more measurable the job (and tool!) performance.  While the comments may point to an aesthetic or style correction to be made, the fact remains that the correction <span class="emphasis">was</span> made.</p>
+<p>Mark-ups also negate any need to discuss the source of errors.  If the matter can be minimized through anticipatory or intuitive design it will cease to exist except for intentionally. Editing time for the vast majority of <span class="emphasis">most common edits</span> has been reduced <span class="emphasis">90% or more</span>.</p>
+<p>&nbsp;</p>
+<p>At IntuiCAD, <span class="emphasis">efficient solutions</span> mean out of the box production with an almost <span class="emphasis">non-existent</span> learning curve. Productive practices can be integrated into the drawings themselves, freeing engineers and designers to focus on far more crucial topics and tasks. Efficiency is capturing <span class="emphasis">both</span> ends of most common edits (the marking AND the editing). Most of all, at IntuiCAD efficiency comes from gathering the best from the best and making it available in a package that is as easily managed as an address book.</p>
+</div>
+<!-- end mainContent div -->
+<div align="center"><img src="IntuiCAD/3redBlocks.gif" alt="&quot;&quot;" width="265" height="35" /></div>
+<div id="siteInfo" align="center">
+<ul>
+<li><a href="index.html">HOME</a></li>
+<li>|</li>
+<li><a href="IntuiCAD/customizations.html">CUSTOMIZATIONS</a></li>
+<li>|</li>
+<li><a href="IntuiCAD/designModules.html">DESIGN MODULES</a></li>
+<li>|</li>
+<li><a href="IntuiCAD/aboutUs.html">ABOUT US</a></li>
+<li>|</li>
+<li><a href="IntuiCAD/privacyPolicy.html">PRIVACY POLICY</a></li>
+<li>|</li>
+<li><a href="IntuiCAD/contactUs.html">CONTACT US</a></li>
+</ul>
+<p>&copy;Copyright 2009 IntuiCAD, LLC. All rights reserved.</p>
+</div>
+<!-- end siteInfo div --></div>
+<p><!-- end container div --></p>
+<div style="position:absolute;filter:alpha(opacity=0);opacity:0.001;z-index:10;">                                        </div></body>
+</html>

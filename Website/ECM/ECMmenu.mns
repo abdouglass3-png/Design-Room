@@ -1,0 +1,63 @@
+***MENUGROUP=ECM
+
+***POP10
+**ELECTRICAL STANDARD
+ID_MNU         [Electrical Standard]
+ID_SL          [->Single Lines]
+ID_Frame         [->Frames]
+ID_mccfrm          [MCC/Panel Frame]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "mccfrm");
+ID_mcccont         [<-MCC/Panel Frame Continuation]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "mcccont");
+ID_mccpd         [Protective Device]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "mccpd");
+ID_slstrtr       [Motor Starter/VFD]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "slstrtr");
+ID_mtrctrl       [Motor Controls]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "mtrctrl");
+ID_slxfmr        [Transformer]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "slxfmr");
+ID_sldsc         [Disconnect]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "sldsc");
+ID_wllstrtr      [Wall Starter]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "wllstrtr");
+ID_slmtr         [Motor]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "slmtr");
+ID_slpnl         [Panel]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "slpnl");
+ID_slwlddsc      [Welding Outlet]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "slwlddsc");
+ID_mccelev       [<--MCC Elevation]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "mccelev");
+ID_Grounding   [->Grounding]
+ID_gndbar        [Ground Bar]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "gndbar");
+ID_gndcrss       [Cross Connector]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "gndcrss");
+ID_gndpgtl       [Pigtail]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "gndpgtl");
+ID_gndtee        [Tee Connector]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "gndtee");
+ID_gndtri        [Grounding Triad]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "gndtri");
+ID_gndwld        [Cadweld]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "gndwld");
+ID_pgtltee       [Tee to Pigtail]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "pgtltee");
+ID_rd2clmn       [Ground Bar]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "rd2clmn");
+ID_tee2clmn      [<-Ground Bar]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "tee2clmn");
+ID_Lighting    [->Lighting]
+ID_2x2flo        [2x2 Flourescent]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "2x2flo");
+ID_2x4flo        [2x4 Flourescent]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "2x4flo");
+ID_can           [Can Light]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "can");
+ID_emer          [Emergency Light]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "emer");
+ID_ledrnd        [Round LED]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "ledrnd");
+ID_fldpole       [Pole Flood Light]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "fldpole");
+ID_strp          [Striplight]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "strp");
+ID_swtch         [Switch]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "swtch");
+ID_fldwll        [Wall Flood Light]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "fldwll");
+ID_wllpck        [<-Wallpack]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "wllpck");
+ID_Power       [->Power]
+ID_Tray	         [->Cable Tray]
+ID_ctbnd           [Cable Tray Bend]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "ctbnd");
+ID_ctcrss          [Cable Tray Cross]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "ctcrss");
+ID_cttee           [Cable Tray Tee]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "cttee");
+ID_ctvrt           [<-Vertical Cable Tray]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "ctvrt");
+ID_cmbstrtr      [Combo Starter]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "cmbstrtr");
+ID_conseal       [Conduit Seal]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "conseal");
+ID_contee        [Conduit Tee]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "contee");
+ID_dscnct        [Disconenct]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "dscnct");
+ID_flxtb         [Flex Tube]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "flxtb");
+ID_mtrhrz        [Horizontal Motor]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "mtrhrz");
+ID_rcptcl        [<-Receptacle]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "rcptcl");
+ID_Heat_Trace  [->Heat Trace]
+ID_htpnl         [Panel]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "htpnl");
+ID_htckt         [Circuit Tag]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "htckt");
+ID_htstrt        [Controller]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "htstrt");
+ID_htbnd         [90 Bend]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "htbnd");
+ID_httee         [Tee Connection]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "httee");
+ID_htvlv         [Valve]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "htvlv");
+ID_htpmp         [Pump]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "htpmp");
+ID_htwall        [Wall]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "htwall");
+ID_htend         [<-Terminator]^C^C(if (null c:ELECMENU)(load "ELECMENU"));(c:ELECMENU "htend");

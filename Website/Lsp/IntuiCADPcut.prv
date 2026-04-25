@@ -1,0 +1,12 @@
+;;; Visual LISP make file [V1.0] IntuiCADPcut saved to:[C:/IntuiCAD/LSP] at:[6/17/11] 
+(PRV-DEF (:target . "IntuiCADPcut.VLX")
+	 (:active-x . T)
+	 (:separate-namespace)
+	 (:protected . T)
+	 (:load-file-list (:fas "IntuiCADpcut.fas"))
+	 (:require-file-list (:DCL "IntuiCADpcut.DCL"))
+	 (:ob-directory)
+	 (:tmp-directory)
+	 (:optimization . lsa)
+)
+;; EOF

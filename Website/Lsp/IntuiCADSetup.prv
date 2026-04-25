@@ -1,0 +1,17 @@
+;;; Visual LISP make file [V1.0] IntuiCADSetup saved to:[C:/IntuiCAD/LSP] at:[6/17/11] 
+(PRV-DEF (:target . "IntuiCADSetup.VLX")
+	 (:active-x . T)
+	 (:separate-namespace)
+	 (:protected . T)
+	 (:load-file-list (:fas "IntuiCADSetup.fas"))
+	 (:require-file-list
+	   (:DCL "IntuiCADqsetup.DCL")
+	   (:DCL "IntuiCADrsetup.DCL")
+	   (:DCL "IntuiCADsetup.DCL")
+	   (:DCL "IntuiCADtsetup.DCL")
+	 )
+	 (:ob-directory)
+	 (:tmp-directory)
+	 (:optimization . lsa)
+)
+;; EOF

@@ -1,0 +1,12 @@
+;;; Visual LISP make file [V1.0] SCMStl saved to:[C:/IntuiCAD/LSP] at:[6/17/11] 
+(PRV-DEF (:target . "SCMStl.VLX")
+	 (:active-x . T)
+	 (:separate-namespace)
+	 (:protected . T)
+	 (:load-file-list (:fas "SCMstl.fas"))
+	 (:require-file-list (:DCL "SCMstl.DCL"))
+	 (:ob-directory)
+	 (:tmp-directory)
+	 (:optimization . lsa)
+)
+;; EOF

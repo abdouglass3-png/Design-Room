@@ -1,0 +1,12 @@
+;;; Visual LISP make file [V1.0] SCMWeld saved to:[C:/IntuiCAD/LSP] at:[6/17/11] 
+(PRV-DEF (:target . "SCMWeld.VLX")
+	 (:active-x . T)
+	 (:separate-namespace)
+	 (:protected . T)
+	 (:load-file-list (:fas "SCMweld.fas"))
+	 (:require-file-list (:DCL "SCMweld.DCL"))
+	 (:ob-directory)
+	 (:tmp-directory)
+	 (:optimization . lsa)
+)
+;; EOF

@@ -1,0 +1,57 @@
+;Created by Arthur B Douglass III exclusively for IntuiCAD, LLC
+;09-17-2009 All rights reserved.
+
+A list of the bonus tools and their functions:
+
+BY		Changes selected object properties to "bylayer"
+DD		Edits text, attributes, dimensions, mtext, have I forgotten anything?
+HA		"Heals" two pieces of arc into one
+HC		Turns an arc into a circle
+HL		Creates a single line from the extreme endpoints of two lines
+LC		Changes objects to current layer
+LDP		Deletes all objects from picked layer
+LF		Freezes selected layer
+LIS		Isolates selected layer
+LM		Places selected objects on picked layer
+LS		Makes picked object layer current
+LX		Explodes blocks and places items on block layer
+ML		Moves items from picked object layer to second picked object layer
+ROT		Repeating rotate command
+SCN		Repeating scale command
+SUBENT		Lists properties of objects in nested x-refs and blocks
+TXCON		Continues a line of text under an existing line
+TXM		All selected text match picked text
+TXSWAP		Swaps the contents of two lines of text
+ZOOMS		Keystroke zoom macros
+
+The scm.pat file has three hatch patterns not included in AutoCad that have been included in the hatching portion of the menu.  Simply add the code to the designated customization portion (bottom) of your acad.pat file.
+
+IntuiCAD SCM included a full set of "dwf" files of the graphics in the product manual.
+
+To load bonus tools:
+
+PASTE ANY OR ALL OF THE FOLLOWING LINES AT THE BOTTOM OF YOUR ACAD.LSP FILE
+THAT WILL LOAD THE BONUS TOOLS AUTOMATICALLY                                           
+THEN PLACE THE DESIRED FILES IN THE C:\IntuiCAD\lsp FOLDER
+
+(defun C:BF () (command ".BREAK" PAUSE "F")(prin1))
+(defun C:BY () (RUN "BY"))
+(defun C:DD () (RUN "DD"))
+(defun C:HL () (RUN "HL"))
+(defun C:HT () (RUN "HT"))
+(defun C:LC () (RUN "LC"))
+(defun C:LDP () (RUN "LDP"))
+(defun C:LF () (RUN "LF"))
+(defun C:LIS () (RUN "LIS"))
+(defun C:LM () (RUN "LM"))
+(defun C:LS () (RUN "LS"))
+(defun C:LX () (RUN "LX"))
+(defun C:ML () (RUN "ML"))
+(defun C:OO () (command "OSNAP" "NONE"))
+(defun C:TXCON () (RUN "TXCON"))
+(defun C:TXM () (RUN "TXM"))
+(defun C:TXSWAP () (RUN "TXSWAP"))
+(defun C:ZA () (command "ZOOM" "A"))
+(defun C:ZE () (command "ZOOM" "E"))
+(defun C:ZO () (RUN2 "ZOOMS" "ZO"))
+(defun C:ZP () (command "ZOOM" "P"))
